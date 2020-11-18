@@ -32,9 +32,9 @@ PLACEHOLDER
 
 
 ## Contributers:
-* Steven Schaab- [GitHub] (raygun2thehead) | [Email] (mailto: stevenes83@gmail.com)
+* Steven Schaab- [GitHub] (https://github.com/raygun2thehead) | [Email] (mailto: stevenes83@gmail.com)
 * Rafael Brill- [GitHub] () | [Email] (mailto: rafabrill@gmail.com)
-* Vick Manjarrez- [GitHub] (Vickmeister) | [Email](mailto: vick.manjarrez@gmail.com)
+* Vick Manjarrez- [GitHub] (https://github.com/Vickmeister) | [Email](mailto: vick.manjarrez@gmail.com)
 * Jalen Lewis- [GitHub](https://github.com/jlew2529) | [Email](mailto:jalenlew1995@gmail.com) 
 * Christian Ramirez- [GitHub](https://github.com/cramirez88) | [Email](mailto:christian.r0602@gmail.com) 
 
