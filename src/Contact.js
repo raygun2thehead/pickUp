@@ -1,9 +1,9 @@
 import React from 'react'
+import Map from './components/Map';
 
 export const Contact = () => (
   <div>
-    <h2>Contact Us</h2>
-    <p>Email:
-    </p>
+   <Map />
+  
   </div>
 )
