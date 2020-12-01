@@ -8,6 +8,8 @@ import { NoMatch } from './NoMatch';
 import { Layout } from './components/Layout';
 import { NavigationBar } from './components/NavigationBar';
 import Facebook from './components/Facebook';
+//import Map from './components/Map';
+//import axios from 'axios';
 //import FacebookLogin from 'react-facebook-login';
 //import { Jumbotron } from './components/Jumbotron';
 class App extends Component {
@@ -17,6 +19,7 @@ class App extends Component {
         <Router>
           <NavigationBar />
           <Facebook />
+          {/* <Map /> */}
           <Layout>
             <Switch>
               <Route exact path="/" component={Home} />
@@ -30,5 +33,7 @@ class App extends Component {
     );
   }
 }
+
+
 
 export default App;
