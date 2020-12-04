@@ -18,19 +18,19 @@ passport.deserializeUser((user, cb) => {
 });
 
 passport.use(new FacebookStrategy({
-    clientID: keys.FACEBOOK.clientID,
-    clientSecret: keys.FACEBOOK.clientSecret,
-    callbackURL: "http://localhost:3000/auth/facebook/callback"
+  clientID: keys.FACEBOOK.clientID,
+  clientSecret: keys.FACEBOOK.clientSecret,
+  callbackURL: "/auth/facebook/callback"
 },
 (accessToken, refreshToken, profile, cb) => {
-    console.log(chalk.blue(JSON.stringify(profile)));
-    user = { ...profile };
-    return cb(null, profile);
-        // User.findOrCreate({facebookId: profile.id }, function(err, user) {
+  console.log(chalk.blue(JSON.stringify(profile)));
+  user = { ...profile };
+  return cb(null, profile);
+}));
+// User.findOrCreate({facebookId: profile.id }, function(err, user) {
         //     return cb(err, user);
         // });
-        }
-))
+
 
 const app = express();
 app.use(cors());
@@ -46,10 +46,12 @@ app.use(
   );
 
 
-  app.get('/auth/facebook',passport.authenticate('facebook'));app.get('/auth/facebook/callback',passport.authenticate('facebook', { failureRedirect: '/login' }),
-  function(req, res) {
-     res.redirect('/profile');
-  });
+ app.get("/auth/facebook", passport.authenticate("facebook"));
+app.get("/auth/facebook/callback",
+    passport.authenticate("facebook"),
+    (req, res) => {
+        res.redirect("/profile");
+    });
 
 // app.get('/user', (req, res) => {
 //     console.log("getting user data");
@@ -65,7 +67,7 @@ app.get("/auth/logout", (req, res) => {
 
 
 mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/users',
+    process.env.MONGODB_URI || 'mongodb://localhost/pickup',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,

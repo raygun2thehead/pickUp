@@ -1,5 +1,5 @@
 {
-  "name": "learnpassportjs-client",
+  "name": "pickup",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-    "eslintConfig": {
+  "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": [
