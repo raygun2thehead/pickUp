@@ -1,21 +1,40 @@
-import React from 'react';
-import { Router, Route } from "react-router-dom";
-import history from "./history";
-import UserProvider from "./contexts/UserProvider";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
-import MenuBar from "./components/menus/MenuBar"
+import React from 'react'
+import Sidebar from './components/Sidebar'
+import Navbar from './components/Navbar'
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import About from './components/About';
+import Map from './components/Map';
+import PickUps from './components/PickUps';
 
-const App = () => {
-    return (
-        <Router history={history}>
-            <UserProvider>
-                <Route path="/" component={MenuBar} />
-                <Route path="/profile" component={Profile} />
-            </UserProvider>
-            <Route path="/" exact component={Home} />
-        </Router>
-    );
-};
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-3">
+              <Sidebar />
+            </div>
+            <div className="col-lg-9 main">
+              <Navbar />
+              <Switch>
+                <Route exact path="/">
+                  <About />
+                </Route>
+                <Route path="/map">
+                  <Map />
+                </Route>
+                <Route path="/pickups" component={PickUps} />
+                <Route>
+                  <Redirect to="/" />
+                </Route>
+              </Switch>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Router>
+  );
+}
 
 export default App;
