@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
-import About from './components/About';
+import Home from './components/Home';
 import Map from './components/Map';
 import PickUps from './components/PickUps';
 
@@ -19,7 +19,7 @@ function App() {
               <Navbar />
               <Switch>
                 <Route exact path="/">
-                  <About />
+                  <Home />
                 </Route>
                 <Route path="/map">
                   <Map />

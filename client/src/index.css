@@ -69,6 +69,13 @@ code {
   cursor: pointer;
 }
 
+.sidebarNavLink {
+  display: inline;
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
+  float: left;
+}
+
 .main {
   background-image: url("./assets/arsenalBg.png");
   border-radius: 5px;
@@ -85,7 +92,7 @@ code {
   font-size: 1.5em;
 }
 
-.about {
+.home {
   background-color: black;
   border-radius: 5px;
   padding: 15px 15px;
