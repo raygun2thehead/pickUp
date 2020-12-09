@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(to top, #3C3B3F, #605C3C);
+  background-attachment: fixed;
+}
+
+body a {
+  color: black;
+  text-decoration: underline;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container{
+  padding-top: 50px;
+  padding-bottom: 25px;
+}
+
+.row{
+  height: 90vh;
+}
+
+.sidebar{
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px 15px;
+  box-shadow:  0 0 10px black;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.sidebarPhoto{
+  height: 200px;
+  width: 200px;
+  margin: 1em;
+  border-radius: 10px;
+  box-shadow:  0 0 10px black;
+  object-fit: contain;
+}
+
+.icon{
+  height: 40px;
+  width: 40px;
+  margin: .5em;
+  border-radius: 10px;
+  box-shadow:  0 0 10px black;
+  border: solid;
+  border-radius: 5px;
+}
+
+.sidebarName {
+  margin: 5px 0;
+}
+
+.sidebarEmail{
+  border: solid;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.sidebarEmail:hover {
+  cursor: pointer;
+}
+
+.main {
+  background-image: url("./assets/arsenalBg.png");
+  border-radius: 5px;
+  padding: 15px 15px;
+  box-shadow:  0 0 20px black;
+}
+
+.navbar {
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
+}
+
+.navbarActive {
+  font-size: 1.5em;
+}
+
+.about {
+  background-color: black;
+  border-radius: 5px;
+  padding: 15px 15px;
+  box-shadow:  0 0 20px black;
+}
+
+.resume {
+  background-color: black;
+  border-radius: 5px;
+  padding: 15px 15px;
+  box-shadow:  0 0 20px black;
+  height: 90%;
+}
+#frame {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.projects {
+  height: 72vh;
+  padding-top: 30px;
+  overflow-y: auto;
+}
+
+.projectCard{
+  width: 45%;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.projectCardWrapper {
+  margin: 10px 0;
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+}
+
+.projectCardImage {
+  width: 100%;
+  height: 80%;
+  border-radius: 5px;
+}
+
+.projectCardIcon{
+  height: 40px;
+  width: 40px;
+  margin: .5em;
+  border-radius: 10px;
+  box-shadow:  0 0 10px black;
+  border: solid;
+  border-radius: 5px;
+}
