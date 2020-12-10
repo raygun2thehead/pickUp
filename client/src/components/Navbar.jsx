@@ -59,33 +59,28 @@ const Navbar = () => {
 					</div>
 				) : (
 						<div className="navbar-nav ml-auto">
-							<li className="nav-item">
-								<Link to={"/login"} className="nav-link">
-									Login
-              </Link>
-							</li>
-
-							<li className="nav-item">
-								<Link to={"/register"} className="nav-link">
-									Sign Up
-              </Link>
-							</li>
+							<Link to="/login">
+								<div className="nav-item" onClick={() => setActive('Login')}>Login</div>
+							</Link>
+							<Link to="/register">
+								<div className="nav-item" onClick={() => setActive('Signup')}>Signup</div>
+							</Link>
 						</div>
 					)}
 
 				{active !== 'Home' &&
 					<Link to="/">
-						<div className="navbarItem" onClick={() => setActive('Home')}>Home</div>
+						<div className="nav-item" onClick={() => setActive('Home')}>Home</div>
 					</Link>
 				}
 				{active !== 'Map' ?
 					<Link to="/map">
-						<div className="navbarItem" onClick={() => setActive('Map')}>Map</div>
+						<div className="nav-item" onClick={() => setActive('Map')}>Map</div>
 					</Link> : null
 				}
 				{active !== 'PickUps' &&
 					<Link to="/pickups">
-						<div className="navbarItem" onClick={() => setActive('PickUps')}>PickUps</div>
+						<div className="nav-item" onClick={() => setActive('PickUps')}>PickUps</div>
 					</Link>
 				}
 			</div>
