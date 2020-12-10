@@ -31,7 +31,7 @@ code {
 .sidebar{
   background-color: white;
   border-radius: 5px;
-  padding: 15px 15px;
+  padding: 1px 15px;
   box-shadow:  0 0 10px black;
   font-family: 'Courier New', Courier, monospace;
 }
@@ -69,6 +69,12 @@ code {
   cursor: pointer;
 }
 
+.sidebarNav {
+  background-color: white;
+  padding: 0;
+  margin-top: 3px;
+}
+
 .main {
   background-image: url("./assets/arsenalBg.png");
   border-radius: 5px;
@@ -79,6 +85,7 @@ code {
 .navbar {
   font-family: 'Courier New', Courier, monospace;
   color: black;
+  opacity: 100%;
 }
 
 .navbarActive {
@@ -86,8 +93,15 @@ code {
 }
 
 .nav-item {
-  padding: 0;
   margin: 2px;
+  float: left;
+  padding-right: 15px;
+}
+
+.navbar-nav {
+  padding: 0;
+  background-color: white;
+  float: left;
 }
 
 .home {
