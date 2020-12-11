@@ -26,17 +26,6 @@ const SidebarNav = () => {
     AuthService.logout();
   };
 
-  const [active, setActive] = useState('')
-  useEffect(() => {
-      let currentURL = window.location.href;
-      if (currentURL.endsWith('/login'))
-          setActive('Login');
-      else if (currentURL.endsWith('/map'))
-          setActive('Map');
-      else if (currentURL.endsWith('/pickups'))
-          setActive('PickUps');
-  }, [active])
-
   return (
     <div>
       <div className="navbar-expand navbar-dark bg-dark sidebarNav">
