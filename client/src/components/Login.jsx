@@ -68,8 +68,10 @@ const Login = (props) => {
   return (
     <div className="col-md-12">
       <div className="card card-container">
-
-        <Form onSubmit={handleLogin} ref={form}>
+        <div>
+      <h2>hi</h2>
+      </div>
+        {/* <Form onSubmit={handleLogin} ref={form}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
             <Input
@@ -111,7 +113,7 @@ const Login = (props) => {
             </div>
           )}
           <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        </Form>
+        </Form> */}
       </div>
     </div>
   );
