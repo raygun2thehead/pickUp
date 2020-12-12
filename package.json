@@ -1,9 +1,6 @@
 {
   "name": "project3-app",
   "version": "0.1.0",
-  "engines": {
-    "node": "12.x"
-  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -13,15 +10,21 @@
     "bootstrap": "^4.5.3",
     "express": "^4.17.1",
     "mongodb": "^3.6.3",
-    "mongoose": "^5.11.1",
+    "mongoose": "^5.11.7",
     "morgan": "^1.10.0",
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "start": "cd client && npm i && npm start",
-    "build": "cd client && npm build",
-    "test": "cd client && npm test",
-    "eject": "cd client && npm eject"
+    "client-install": "npm install --prefix client",
+    "start": "npm install --prefix client && npm run build --prefix client",
+    "server": "",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"nodemon index\" \"npm run client\""
+   
+  },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.9.0"
   },
   "eslintConfig": {
     "extends": [
