@@ -3,8 +3,8 @@ import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
-import Map from './components/Map';
 import PickUps from './components/PickUps';
+import Maps from './components/Map';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
                   <Home />
                 </Route>
                 <Route path="/map">
-                  <Map />
+                  <Maps />
                 </Route>
                 <Route path="/pickups" component={PickUps} />
                 <Route>
