@@ -18,7 +18,7 @@
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "start": "cd client && npm start",
+    "start": "cd client && npm i && npm start",
     "build": "cd client && npm build",
     "test": "cd client && npm test",
     "eject": "cd client && npm eject"
