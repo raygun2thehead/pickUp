@@ -1,4 +1,8 @@
 const express = require("express");
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const path = require('path');
+const cors = require('cors');
 
 const mongoose = require("mongoose");
 // const routes = require("./routes");
@@ -8,17 +12,35 @@ const PORT = process.env.PORT || 3001;
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(cors());
+
+
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-// Add routes, both API and view
-// app.use(routes);
+const uri = process.env.MONGODB_URI || "mongodb://localhost/pickup02";
+   if (process.env.NODE_ENV === 'production') {
+        app.use(express.static(path.join(__dirname, 'client/build')));
+        //
+        app.get('*', (req, res) => {
+          console.log('working')
+          res.sendFile(path.join((__dirname = 'client/build/index.html')));
+        });
+      }
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/pickup23");
+      // build mode
+      app.get('*', (req, res) => {
+        console.log('build mode')
+        console.log(path.join(__dirname + '/client/public/index.html'))
+        res.sendFile(path.join(__dirname + '/client/public/index.html'));
+        
+      });
 
-// Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
+      // app.post('/api/user', (req, res) => {
+      //   console.log('THE ROUTE IS HIT');
+      // });
+
+      // Starting Server
+      app.listen(PORT, () => {
+        console.log(`App listening on PORT: ${PORT}`);
+      });
+     
