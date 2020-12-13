@@ -15,7 +15,7 @@ function Table(props) {
             </thead>
             <tbody>
 
-                {activities.length > 0? activities.employees.map(activity=>{
+                {props.activities > 0? props.activities.map(activity=>{
                     return(
                         <tr>
                     {/* <th scope="row"><img src={activity.picture.thumbnail}/></th> */}
