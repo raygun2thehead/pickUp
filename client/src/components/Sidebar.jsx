@@ -15,7 +15,7 @@ const Sidebar = () => {
         <div className="sidebar">
             <SidebarNav />
             
-      <div className="container mt-3">
+      <div className="container mt-0">
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
