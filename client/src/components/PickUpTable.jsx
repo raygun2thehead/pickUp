@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-const PickUpTable = () => {
-    return (
-        <div className="pickUpTable">
-            TAblee
-        </div>
+function Search(props){
+  console.log(props.keyWord)
+    return(
+
+      <div>
+       Activity Search   <input name='search'   onChange={props.handleInputChange} value={props.keyWord} />
+      </div>
+
+      
     )
 }
 
-export default PickUpTable;
+export default Search;
