@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 // import Home from "./Home";
@@ -11,6 +11,7 @@ import SidebarNav from './SidebarNav';
 const Sidebar = () => {
 
     return (
+        <Router>
         <div className="sidebar">
             <SidebarNav />
             
@@ -24,6 +25,7 @@ const Sidebar = () => {
       </div>
               <div className="sidebarName">search <span>components</span></div>
         </div>
+        </Router>
     )
 }
 
