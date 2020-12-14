@@ -3,7 +3,7 @@ import load from '../assets/load.gif'
 import UserService from "../services/user.service";
 
 const Home = () => {
-    const [content, setContent] = useState("");
+    const [content, setContent] = useState('');
 
     useEffect(() => {
         UserService.getPublicContent().then(
@@ -24,7 +24,7 @@ const Home = () => {
     return (
         <div className="home">
             <header className="jumbotron">
-                <h3>{content}</h3>
+                <h3>{}</h3>
             </header>
             <img src={load} alt="load" className="HomePhoto" />
         </div>
