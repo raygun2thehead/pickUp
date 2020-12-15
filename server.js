@@ -5,7 +5,15 @@ const morgan = require('morgan');
 const session = require('express-session');
 // const dbConnection = require('./database');
 const MongoStore = require('connect-mongo')(session);
+
 const passport = require('./passport');
+
+const path = require('path');
+const cors = require('cors');
+
+const mongoose = require("mongoose");
+const routes = require("./routes");
+
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
