@@ -8,14 +8,12 @@ const MongoStore = require('connect-mongo')(session);
 
 const passport = require('./passport');
 
-const path = require('path');
 const cors = require('cors');
 
 const mongoose = require("mongoose");
 const routes = require("./routes");
 
 const app = express();
-const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const PORT = process.env.PORT || 3001;
