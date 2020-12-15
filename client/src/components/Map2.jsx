@@ -28,7 +28,7 @@ class Map2 extends Component {
                 near: city,
                 query: place,
                 v: "20201214",
-                limit: 10
+                limit: 20
         }
 
         axios.get(url + new URLSearchParams(parameters))

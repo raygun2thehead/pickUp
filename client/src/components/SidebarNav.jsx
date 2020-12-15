@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 import AuthService from "../services/auth.service";
 
-import Login from "./Login";
-import Register from "./Register";
-// import Home from "./Home";
-import Profile from "./Profile";
-import User from "./User";
+// import Login from "./Login";
+// import Register from "./Register";
+// // import Home from "./Home";
+// import Profile from "./Profile";
+// import User from "./User";
 // import BoardModerator from "./components/BoardModerator";
 // import BoardAdmin from "./components/BoardAdmin";
 
@@ -65,16 +65,6 @@ const SidebarNav = () => {
           </Link>
           </div>
         )}
-      </div>
-
-      <div className="container mt-3">
-        <Switch>
-          {/* <Route exact path={["/", "/home"]} component={Home} /> */}
-          <Route exact path="/" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/profile" component={Profile} />
-          <Route path="/user" component={User} />
-        </Switch>
       </div>
     </div>
   );

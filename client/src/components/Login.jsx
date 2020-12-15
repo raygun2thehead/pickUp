@@ -45,7 +45,7 @@ const Login = (props) => {
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.login(username, password).then(
         () => {
-          props.history.push("/profile");
+          props.history.push("/");
           window.location.reload();
         },
         (error) => {
@@ -68,7 +68,6 @@ const Login = (props) => {
   return (
     <div className="col-md-12">
       <div className="card card-container">
-
         <Form onSubmit={handleLogin} ref={form}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
