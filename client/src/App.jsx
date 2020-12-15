@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import PickUps from './components/PickUps';
-import Maps from './components/Map';
+import Map2 from './components/Map2';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
                   <Home />
                 </Route>
                 <Route path="/map">
-                  <Maps />
+                  <Map2 />
                 </Route>
                 <Route path="/pickups" component={PickUps} />
                 <Route>
