@@ -35,18 +35,13 @@ const user = require('./routes/user');
       app.use(passport.session()); // calls the deserializeUser
 
 // MIDDLEWARE
-app.use(morgan('dev'));
-app.use(
-  bodyParser.urlencoded({
-    extended: false,
-  })
-);
-app.use(bodyParser.json());
+ app.use(express.urlencoded({extended:true}))
+ app.use(express.json())
 app.use(cors());
 
 
  
-mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/pickup02";)
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/pickup02")
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, './client/build')));
