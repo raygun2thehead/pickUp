@@ -1,6 +1,8 @@
-module.exports = {
-    Activity: require("./activity")
-  };
-  
+const activityRoutes = require("./activity")
+const router = require("express").Router()
+
+router.use("/activity",activityRoutes)
+
+module.exports = router
 
 
