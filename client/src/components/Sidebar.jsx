@@ -10,23 +10,23 @@ import SidebarNav from './SidebarNav';
 
 const Sidebar = () => {
 
-    return (
-        <Router>
-        <div className="sidebar">
-            <SidebarNav />
-            
-      <div className="container mt-0">
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/profile" component={Profile} />
-          <Route path="/user" component={User} />
-        </Switch>
-      </div>
-              <div className="sidebarName">search <span>components</span></div>
+  return (
+    <Router>
+      <div className="sidebar">
+        <SidebarNav />
+
+        <div className="container mt-0">
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/profile" component={Profile} />
+            <Route path="/user" component={User} />
+          </Switch>
         </div>
-        </Router>
-    )
+        <div className="sidebarName"> df</div>
+      </div>
+    </Router>
+  )
 }
 
 export default Sidebar;

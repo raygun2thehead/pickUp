@@ -9,7 +9,6 @@ import Map2 from './components/Map2';
 function App() {
   return (
     <Router>
-      <div className="App">
         <div className="container">
           <div className="row">
             <div className="col-lg-3">
@@ -32,7 +31,6 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
     </Router>
   );
 }

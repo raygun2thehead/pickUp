@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
-import AuthService from "../services/auth.service";
+// import AuthService from "../services/auth.service";
 
 // import Login from "./Login";
 // import Register from "./Register";
@@ -15,17 +15,17 @@ import AuthService from "../services/auth.service";
 const SidebarNav = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
 
-  useEffect(() => {
-    const user = AuthService.getCurrentUser();
+  // useEffect(() => {
+  //   const user = AuthService.getCurrentUser();
 
-    if (user) {
-      setCurrentUser(user);
-    }
-  }, []);
+  //   if (user) {
+  //     setCurrentUser(user);
+  //   }
+  // }, []);
 
-  const logOut = () => {
-    AuthService.logout();
-  };
+  // const logOut = () => {
+  //   AuthService.logout();
+  // };
 
   return (
     <div>
@@ -49,9 +49,9 @@ const SidebarNav = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <a href="/login" className="nav-link" onClick={logOut}>
+              {/* <a href="/login" className="nav-link" onClick={logOut}>
                 LogOut
-              </a>
+              </a> */}
             </li>
           </div>
         ) : (

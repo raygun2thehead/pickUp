@@ -4,7 +4,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 // import { isEmail } from "validator";
 
-import AuthService from "../services/auth.service";
+// import AuthService from "../services/auth.service";
 
 const required = (value) => {
   if (!value) {
@@ -79,25 +79,25 @@ const Register = (props) => {
 
     form.current.validateAll();
 
-    if (checkBtn.current.context._errors.length === 0) {
-      AuthService.register(username, password).then(
-        (response) => {
-          setMessage(response.data.message);
-          setSuccessful(true);
-        },
-        (error) => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
+    // if (checkBtn.current.context._errors.length === 0) {
+    //   AuthService.register(username, password).then(
+    //     (response) => {
+    //       setMessage(response.data.message);
+    //       setSuccessful(true);
+    //     },
+    //     (error) => {
+    //       const resMessage =
+    //         (error.response &&
+    //           error.response.data &&
+    //           error.response.data.message) ||
+    //         error.message ||
+    //         error.toString();
 
-          setMessage(resMessage);
-          setSuccessful(false);
-        }
-      );
-    }
+    //       setMessage(resMessage);
+    //       setSuccessful(false);
+    //     }
+    //   );
+    // }
   };
 
   return (

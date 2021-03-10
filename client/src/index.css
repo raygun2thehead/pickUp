@@ -20,7 +20,7 @@ code {
 }
 
 .container{
-  padding-top: 50px;
+  padding-top: 15px;
   padding-bottom: 25px;
 }
 
@@ -34,6 +34,7 @@ code {
   padding: 1px 15px;
   box-shadow:  0 0 10px black;
   font-family: 'Courier New', Courier, monospace;
+  overflow: auto;
 }
 
 .btn{

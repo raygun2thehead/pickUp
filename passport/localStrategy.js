@@ -1,24 +1,25 @@
-const User = require('../models/user')
-const LocalStrategy = require('passport-local').Strategy
+const User = require("../models/user");
+const LocalStrategy = require("passport-local").Strategy;
+const bcrypt = require("bcryptjs");
 
-const strategy = new LocalStrategy(
-	{
-		usernameField: 'username' // not necessary, DEFAULT
-	},
-	function(username, password, done) {
-		User.findOne({ username: username }, (err, user) => {
-			if (err) {
-				return done(err)
-			}
-			if (!user) {
-				return done(null, false, { message: 'Incorrect username' })
-			}
-			if (!user.checkPassword(password)) {
-				return done(null, false, { message: 'Incorrect password' })
-			}
-			return done(null, user)
-		})
-	}
-)
+const strategy = new LocalStrategy( // Our user will sign in using an email, rather than a "username"
+  {
+    usernameField: "email",
+  },
+  (email, password, done) => {
+    User.findOne({ email: email }, (err, user) => {
+      if (err) throw err;
+      if (!user) return done(null, false);
+      bcrypt.compare(password, user.password, (err, result) => {
+        if (err) throw err;
+        if (result === true) {
+          return done(null, user);
+        } else {
+          return done(null, false);
+        }
+      });
+    });
+  }
+);
 
-module.exports = strategy
+module.exports = strategy;

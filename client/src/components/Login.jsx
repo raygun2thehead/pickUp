@@ -3,7 +3,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 
-import AuthService from "../services/auth.service";
+// import AuthService from "../services/auth.service";
 
 const required = (value) => {
   if (!value) {
@@ -42,27 +42,27 @@ const Login = (props) => {
 
     form.current.validateAll();
 
-    if (checkBtn.current.context._errors.length === 0) {
-      AuthService.login(username, password).then(
-        () => {
-          props.history.push("/");
-          window.location.reload();
-        },
-        (error) => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
+    // if (checkBtn.current.context._errors.length === 0) {
+    //   AuthService.login(username, password).then(
+    //     () => {
+    //       props.history.push("/");
+    //       window.location.reload();
+    //     },
+    //     (error) => {
+    //       const resMessage =
+    //         (error.response &&
+    //           error.response.data &&
+    //           error.response.data.message) ||
+    //         error.message ||
+    //         error.toString();
 
-          setLoading(false);
-          setMessage(resMessage);
-        }
-      );
-    } else {
-      setLoading(false);
-    }
+    //       setLoading(false);
+    //       setMessage(resMessage);
+    //     }
+    //   );
+    // } else {
+    //   setLoading(false);
+    // }
   };
 
   return (
