@@ -23,7 +23,7 @@ const Sidebar = () => {
             <Route path="/user" component={User} />
           </Switch>
         </div>
-        <div className="sidebarName"> df</div>
+        <div className="sidebarName"></div>
       </div>
     </Router>
   )

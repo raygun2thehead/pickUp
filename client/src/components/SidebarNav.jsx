@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useUserContext } from "../utils/UserContext";
+import API from "../utils/API";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 // import AuthService from "../services/auth.service";
@@ -13,7 +15,7 @@ import { Link } from "react-router-dom";
 // import BoardAdmin from "./components/BoardAdmin";
 
 const SidebarNav = () => {
-  const [currentUser, setCurrentUser] = useState(undefined);
+  const [state, dispatch] = useUserContext();
 
   // useEffect(() => {
   //   const user = AuthService.getCurrentUser();
@@ -23,14 +25,34 @@ const SidebarNav = () => {
   //   }
   // }, []);
 
-  // const logOut = () => {
-  //   AuthService.logout();
-  // };
+  const logOut = () => {
+    API.userLogout(state)
+    .then((e) => {
+      setLocal();
+      setState();
+    }) 
+  };
+  const setLocal = () => {
+    localStorage.removeItem("_id");
+    localStorage.removeItem("email");
+    localStorage.removeItem("favs");
+    localStorage.removeItem("shoppingList");
+  }
+
+  const setState = () => {
+    dispatch({
+      type: "setCurrentUser",
+      email: "",
+      favs: "",
+      _id: "",
+      shoppingCart: "", 
+    });
+  };
 
   return (
     <div>
       <div className="navbar-expand navbar-dark bg-dark sidebarNav">
-        <div className="navbar-nav mr-auto">
+        {/* <div className="navbar-nav mr-auto">
 
           {currentUser && (
             <li className="nav-item">
@@ -39,19 +61,19 @@ const SidebarNav = () => {
               </Link>
             </li>
           )}
-        </div>
+        </div> */}
 
-        {currentUser ? (
+        {state.email ? (
           <div className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link to={"/profile"} className="nav-link">
-                {currentUser.username}
+              <Link to={"/user"} className="nav-link">
+                {setLocal}
               </Link>
             </li>
             <li className="nav-item">
-              {/* <a href="/login" className="nav-link" onClick={logOut}>
+              <a href="/login" className="nav-link" onClick={logOut}>
                 LogOut
-              </a> */}
+              </a>
             </li>
           </div>
         ) : (
