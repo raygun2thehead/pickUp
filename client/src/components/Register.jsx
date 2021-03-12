@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import API from "../utils/API";
 import { useUserContext } from "../utils/UserContext";
 
-export default function Register() {
+ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [state, dispatch] = useUserContext();
@@ -58,7 +58,7 @@ export default function Register() {
       <div className="card card-container Login">
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="email">
-            <Form.Label htmlFor="email">Email</Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control
               autoFocus
               type="email"
@@ -67,7 +67,7 @@ export default function Register() {
             />
           </Form.Group>
           <Form.Group controlId="password">
-            <Form.Label htmlFor="password">Password</Form.Label>
+            <Form.Label>Password</Form.Label>
             <Form.Control
               autoFocus
               type="password"
@@ -81,6 +81,7 @@ export default function Register() {
             className="btn btn-primary btn-block"
             type="submit"
             onClick={register}
+            // disabled={!validateForm()}
             >Sign Up</button>
           </div>
         </Form>
@@ -89,3 +90,4 @@ export default function Register() {
   );
 };
 
+export default Register;

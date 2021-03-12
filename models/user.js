@@ -19,8 +19,8 @@ const user = new Schema({
     required: true,
     default: Date.now,
   },
-  favs: [],
-  shoppingList: []
+  created: [],
+  going: []
  
 });
 

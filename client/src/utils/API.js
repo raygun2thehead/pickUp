@@ -4,6 +4,7 @@ import axios from "axios";
 export default {
   //user signup
   userRegister: function (userObj) {
+    console.log(userObj);
     return axios({
       method: "POST",
       data: userObj,

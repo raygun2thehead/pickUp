@@ -1,4 +1,4 @@
 module.exports = {
-    recipeController: require("./activityController"),
-    wineController: require("./userController")
+    activityController: require("./activityController"),
+    userController: require("./userController")
 };
