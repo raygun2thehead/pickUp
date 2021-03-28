@@ -115,7 +115,7 @@ function Login({ useremail }) {
     <div className="col-md-12">
       <div className="card card-container">
 
-        {useremail && <Redirect to="/home" />}
+        {useremail && <Redirect to="/user" />}
         <Form onSubmit={handleSubmit}>
           <Form.Group size="md" controlId="email">
             <Form.Label>Email</Form.Label>

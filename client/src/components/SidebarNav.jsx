@@ -2,94 +2,64 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../utils/UserContext";
 import API from "../utils/API";
-// import "bootstrap/dist/css/bootstrap.min.css";
 
-// import AuthService from "../services/auth.service";
-
-// import Login from "./Login";
-// import Register from "./Register";
-// // import Home from "./Home";
-// import Profile from "./Profile";
-// import User from "./User";
-// import BoardModerator from "./components/BoardModerator";
-// import BoardAdmin from "./components/BoardAdmin";
 
 const SidebarNav = () => {
   const [state, dispatch] = useUserContext();
 
-  // useEffect(() => {
-  //   const user = AuthService.getCurrentUser();
-
-  //   if (user) {
-  //     setCurrentUser(user);
-  //   }
-  // }, []);
-
   const logOut = () => {
     API.userLogout(state)
-    .then((e) => {
-      setLocal();
-      setState();
-    }) 
+      .then((e) => {
+        setLocal();
+        setState();
+      })
   };
   const setLocal = () => {
     localStorage.removeItem("_id");
     localStorage.removeItem("email");
-    localStorage.removeItem("favs");
-    localStorage.removeItem("shoppingList");
+    localStorage.removeItem("created");
+    localStorage.removeItem("going");
   }
 
   const setState = () => {
     dispatch({
       type: "setCurrentUser",
       email: "",
-      favs: "",
+      created: "",
       _id: "",
-      shoppingCart: "", 
+      going: "",
     });
   };
 
-  return (
-    <div>
-      <div className="navbar-expand navbar-dark bg-dark sidebarNav">
-        {/* <div className="navbar-nav mr-auto">
-
-          {currentUser && (
+  if (state.email) {
+    return (
+      <div>
+        <div className="navbar-expand navbar-dark bg-dark sidebarNav">
             <li className="nav-item">
-              <Link to={"/user"} className="nav-link">
-                User
-              </Link>
-            </li>
-          )}
-        </div> */}
-
-        {state.email ? (
-          <div className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link to={"/user"} className="nav-link">
+              {/* <Link to={"/user"} className="nav-item">
                 {setLocal}
-              </Link>
+              </Link> */}
             </li>
             <li className="nav-item">
-              <a href="/login" className="nav-link" onClick={logOut}>
+              <a href="/login" className="nav-item" onClick={logOut}>
                 LogOut
-              </a>
+                </a>
             </li>
-          </div>
-        ) : (
-          <div className="navbar-nav ml-auto">
-          <Link to="/login">
-              <div className="nav-item">Login</div>
-          </Link>
-
-          <Link to="/register">
-              <div className="nav-item">Register</div>
-          </Link>
-          </div>
-        )}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  } else {
+    return (
+      <div className="navbar-expand ml-auto">
+        <Link to="/login">
+          <div className="nav-item">Login</div>
+        </Link>
 
+        <Link to="/register">
+          <div className="nav-item">Register</div>
+        </Link>
+      </div>
+    );
+  };
+}
 export default SidebarNav;
