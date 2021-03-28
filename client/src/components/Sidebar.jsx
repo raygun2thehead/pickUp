@@ -5,9 +5,11 @@ import Register from "./Register";
 // import Home from "./Home";
 import User from "./User";
 import SidebarNav from './SidebarNav';
+import { useUserContext } from "../utils/UserContext";
 
 
 const Sidebar = () => {
+  const [state, dispatch] = useUserContext();
 
   return (
     <Router>
@@ -16,12 +18,15 @@ const Sidebar = () => {
 
         <div className="container mt-0">
           <Switch>
-            <Route exact path="/login" component={Login} />
+            <Route 
+            exact path="/login" 
+            render={() => <Login useremail={state.email} />}
+            >
+              </Route> 
             <Route exact path="/register" component={Register} />
             <Route path="/user" component={User} />
           </Switch>
         </div>
-        <div className="sidebarName"></div>
       </div>
     </Router>
   )

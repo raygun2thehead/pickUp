@@ -33,7 +33,6 @@ const SidebarNav = () => {
 
   if (state.email) {
     return (
-      <div>
         <div className="navbar-expand navbar-dark bg-dark sidebarNav">
             <li className="nav-item">
               {/* <Link to={"/user"} className="nav-item">
@@ -46,7 +45,6 @@ const SidebarNav = () => {
                 </a>
             </li>
         </div>
-      </div>
     );
   } else {
     return (

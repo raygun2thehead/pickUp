@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-
-// import UserService from "../services/user.service";
+import React from "react";
+import { useUserContext } from "../utils/UserContext";
 
 const User = () => {
-  const [content, setContent] = useState("");
+  const [state, dispatch] = useUserContext();
 
   // useEffect(() => {
   //   UserService.getUser().then(
@@ -26,7 +25,7 @@ const User = () => {
   return (
     <div className="container">
       <header className="jumbotron">
-        <h3>{content}</h3>
+        <h5>{state.email}</h5>
       </header>
     </div>
   );

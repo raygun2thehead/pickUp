@@ -39,7 +39,7 @@ function Login({ useremail }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(state._email);
+    console.log(state.email);
   }
 
   //sets local storage

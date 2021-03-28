@@ -5,12 +5,11 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import Home from './components/Home';
 import PickUps from './components/PickUps';
 import Map2 from './components/Map2';
-import { UserProvider } from './utils/UserContext';
 
 
 function App() {
+  
   return (
-    <UserProvider>
     <Router>
         <div className="container">
           <div className="row">
@@ -35,7 +34,6 @@ function App() {
           </div>
         </div>
     </Router>
-   </UserProvider>
   );
 }
 
