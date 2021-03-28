@@ -4,11 +4,11 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const dotenv = require("dotenv");
-const cors = require("cors");
+// const cors = require("cors");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
 dotenv.config();
 

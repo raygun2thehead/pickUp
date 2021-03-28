@@ -9,11 +9,11 @@
 * [Questions](#questions)
 
 ## Description
-PickUp was designed to create and see what is going on in your community. A list of parks and gyms can be searched within our app. The user, upon logging in, can view the activities that are happening at a park near them and decide to attend them or create their own.
+PickUp was designed to create and see what is going on in your community. A list of parks can be searched within our app. The user can view the activities that are happening at a park near them and decide to attend them or, if logged in, create their own.
 
-## Functionality
+## Technologies Used
 
-This app uses the following technologies: MongoDB, Express.js, React.js, Node.js, passport.js, foursquare API, and google maps API.
+MongoDB, Express.js, React.js, Node.js, passport.js, foursquare API, and google maps API.
 
 ## Installation
 Clone or fork the repo to your own device. Npm install at root and at client folder. To run development instance, run npm dev. 

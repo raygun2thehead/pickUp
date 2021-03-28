@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import API from "../utils/API";
 import { useUserContext } from "../utils/UserContext";
 
- function Register() {
+function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [state, dispatch] = useUserContext();
@@ -77,12 +77,15 @@ import { useUserContext } from "../utils/UserContext";
           </Form.Group>
 
           <div className="form-group">
-            <button 
-            className="btn btn-primary btn-block"
-            type="submit"
-            onClick={register}
-            // disabled={!validateForm()}
+            <button
+              className="btn btn-primary btn-block"
+              type="submit"
+              onClick={register}
+              disabled={!validateForm()}
             >Sign Up</button>
+            {/* <Link to="/login">
+              <strong>Or Click here to Login</strong>
+            </Link> */}
           </div>
         </Form>
       </div>
