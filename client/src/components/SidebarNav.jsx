@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../utils/UserContext";
 import API from "../utils/API";
 
 
-const SidebarNav = () => {
+const SidebarNav = ({email}) => {
   const [state, dispatch] = useUserContext();
 
   const logOut = () => {
@@ -33,17 +33,12 @@ const SidebarNav = () => {
 
   if (state.email) {
     return (
-        <div className="navbar-expand navbar-dark bg-dark sidebarNav">
-            <li className="nav-item">
-              {/* <Link to={"/user"} className="nav-item">
-                {setLocal}
-              </Link> */}
-            </li>
-            <li className="nav-item">
-              <a href="/login" className="nav-item" onClick={logOut}>
-                LogOut
-                </a>
-            </li>
+        <div className="navbar-expand navbar-dark bg-dark">
+            <div className="nav-item">
+              <Link to="/login"  onClick={logOut}>
+              <div className="nav-item">Logout</div>
+                </Link>
+            </div>
         </div>
     );
   } else {

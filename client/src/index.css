@@ -28,6 +28,11 @@ code {
   height: 90vh;
 }
 
+.input:focus{
+  box-shadow: none;
+  border-color: black;
+}
+
 .sidebar{
   background-image: url("./assets/marbs.jpg");
   border-radius: 5px;
@@ -66,26 +71,6 @@ button[disabled]{
   margin-top: 0;
 }
 
-.sidebarName {
-  margin: 5px 0;
-}
-
-.sidebarEmail{
-  border: solid;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.sidebarEmail:hover {
-  cursor: pointer;
-}
-
-.sidebarNav {
-  background-color: white;
-  padding: 0;
-  margin-top: 3px;
-}
-
 .main {
   background-image: url("./assets/marbs.jpg");
   border-radius: 5px;
@@ -122,13 +107,6 @@ button[disabled]{
   box-shadow:  0 0 20px black;
 }
 
-.resume {
-  background-color: black;
-  border-radius: 5px;
-  padding: 15px 15px;
-  box-shadow:  0 0 20px black;
-  height: 90%;
-}
 #frame {
   width: 100%;
   height: 100%;

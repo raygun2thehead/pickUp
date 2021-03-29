@@ -120,6 +120,7 @@ function Login({ useremail }) {
           <Form.Group size="md" controlId="email">
             <Form.Label>Email</Form.Label>
             <Form.Control
+            className="input"
               autoFocus
               type="email"
               value={email}
@@ -129,6 +130,7 @@ function Login({ useremail }) {
           <Form.Group size="md" controlId="password">
             <Form.Label>Password</Form.Label>
             <Form.Control
+            className="input"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

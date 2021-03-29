@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import load from '../assets/load.gif'
+import parkBg from '../assets/parkBg.jpg'
 // import UserService from "../services/user.service";
 
 const Home = () => {
@@ -23,10 +23,7 @@ const Home = () => {
 
     return (
         <div className="home">
-            <header className="jumbotron">
-                <h3>{}</h3>
-            </header>
-            <img src={load} alt="load" className="HomePhoto" />
+            {/* <img src={parkBg} alt="load" className="HomePhoto" /> */}
         </div>
     )
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
-// import Home from "./Home";
 import User from "./User";
 import SidebarNav from './SidebarNav';
 import { useUserContext } from "../utils/UserContext";
@@ -14,17 +13,20 @@ const Sidebar = () => {
   return (
     <Router>
       <div className="sidebar">
-        <SidebarNav />
+        <SidebarNav email={state.email} />
 
         <div className="container mt-0">
           <Switch>
-            <Route 
-            exact path="/login" 
-            render={() => <Login useremail={state.email} />}
+            <Route
+              exact path="/login"
+              render={() => <Login useremail={state.email} />}
             >
-              </Route> 
+            </Route>
             <Route exact path="/register" component={Register} />
-            <Route path="/user" component={User} />
+            <Route path="/user"
+              render={() => <User
+                useremail={state.email} />}>
+            </Route>
           </Switch>
         </div>
       </div>

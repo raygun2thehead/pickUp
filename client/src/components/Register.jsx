@@ -60,6 +60,7 @@ function Register() {
           <Form.Group controlId="email">
             <Form.Label>Email</Form.Label>
             <Form.Control
+            className="input"
               autoFocus
               type="email"
               value={email}
@@ -69,6 +70,7 @@ function Register() {
           <Form.Group controlId="password">
             <Form.Label>Password</Form.Label>
             <Form.Control
+            className="input"
               autoFocus
               type="password"
               value={password}
