@@ -4,7 +4,7 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const dotenv = require("dotenv");
-// const cors = require("cors");
+const cors = require("cors");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -15,8 +15,8 @@ dotenv.config();
 // cross-origin request security (CORS)
 // prevents requests to unauthorized domains
 // accept requests from the client
-// app.use(cors());
-//app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors());
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 // Define middleware here //added need to test
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

@@ -11,12 +11,6 @@ body {
 
 body a {
   color: black;
-  text-decoration: underline;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 .container{
@@ -92,6 +86,10 @@ button[disabled]{
   margin: 2px;
   float: left;
   padding-right: 15px;
+}
+
+.nav-item:hover{
+  color: grey;
 }
 
 .navbar-nav {

@@ -3,7 +3,7 @@ import parkBg from '../assets/parkBg.jpg'
 // import UserService from "../services/user.service";
 
 const Home = () => {
-    const [content, setContent] = useState('');
+    // const [content, setContent] = useState('');
 
     // useEffect(() => {
     //     UserService.getPublicContent().then(
