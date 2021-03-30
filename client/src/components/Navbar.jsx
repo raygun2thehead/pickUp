@@ -34,7 +34,7 @@ const Navbar = () => {
 			<div className="navbarActive">
 				{active}
 			</div>
-			<div className="navbarItems">
+			<div className="nav">
 				{/* {currentUser && (
 					<li className="nav-item">
 						<Link to={"/user"} className="nav-link">
