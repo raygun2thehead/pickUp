@@ -75,7 +75,6 @@ button[disabled]{
 .navbar {
   font-family: 'Courier New', Courier, monospace;
   color: black;
-  /* opacity: 100%; */
 }
 
 .navbarActive {

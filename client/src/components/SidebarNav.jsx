@@ -31,7 +31,7 @@ const SidebarNav = ({email}) => {
     });
   };
 
-  if (state.email) {
+  if (email) {
     return (
         <div className="navbar-expand navbar-dark bg-dark">
             <div className="nav-item">
