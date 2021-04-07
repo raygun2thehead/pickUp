@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { Image, LinearGradient } from "react";
 import parkBg from '../assets/parkBg.jpg'
 // import UserService from "../services/user.service";
 
@@ -23,7 +23,14 @@ const Home = () => {
 
     return (
         <div className="home">
-            {/* <img src={parkBg} alt="load" className="HomePhoto" /> */}
+            <img 
+            src={parkBg} 
+            alt="load" 
+            className="homePhoto"
+            style={{
+                // position: 'absolute'
+                backgroundImage: 'linear-gradient(0deg, #00000038 30%, #ffffff44 100%)'
+            }} />
         </div>
     )
 }

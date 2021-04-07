@@ -102,7 +102,25 @@ button[disabled]{
   border-radius: 5px;
   padding: 15px 15px;
   box-shadow:  0 0 20px black;
+  ;
 }
+
+.wrapper{
+  position:relative;
+   z-index:1;
+}
+
+.homePhot {
+   content: url('./assets/parkBg.jpg');
+   /* position:relative; */
+   background-image: linear-gradient(0deg, #00000038 30%, #ffffff44 100%), url('./assets/parkBg.jpg');
+   width:100%;
+   height:100%;
+   z-index:-1;
+   left: 0; 
+   top: 0; 
+}
+
 
 #frame {
   width: 100%;
