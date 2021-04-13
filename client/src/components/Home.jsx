@@ -29,8 +29,11 @@ const Home = () => {
             className="homePhoto"
             style={{
                 // position: 'absolute'
-                backgroundImage: 'linear-gradient(0deg, #00000038 30%, #ffffff44 100%)'
-            }} />
+                backgroundImage: 'linear-gradient(0deg, #00000038 10%, #ffffff44 100%)'
+            }}
+            >
+                
+            </img>
         </div>
     )
 }

@@ -68,17 +68,18 @@ button[disabled]{
 .main {
   background-image: url("./assets/marbs.jpg");
   border-radius: 5px;
-  padding: 15px 15px;
+  padding-top: 15px;
   box-shadow:  0 0 20px black;
 }
 
 .navbar {
+  padding-top: 15px;
   font-family: 'Courier New', Courier, monospace;
   color: black;
 }
 
 .navbarActive {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 .nav-item {
@@ -102,7 +103,7 @@ button[disabled]{
   border-radius: 5px;
   padding: 15px 15px;
   box-shadow:  0 0 20px black;
-  ;
+  background-image: linear-gradient(0deg, #2f4b3a38 10%, #30721b44 100%);;
 }
 
 .wrapper{
@@ -110,15 +111,16 @@ button[disabled]{
    z-index:1;
 }
 
-.homePhot {
-   content: url('./assets/parkBg.jpg');
+.homePhoto {
+   /* content: url('./assets/parkBg.jpg'); */
    /* position:relative; */
-   background-image: linear-gradient(0deg, #00000038 30%, #ffffff44 100%), url('./assets/parkBg.jpg');
+   
    width:100%;
    height:100%;
    z-index:-1;
    left: 0; 
    top: 0; 
+   opacity: 20%;
 }
 
 
