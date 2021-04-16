@@ -20,7 +20,7 @@ Clone or fork the repo to your own device. Npm install at root and at client fol
 
 ## Usage
 
-To access site, go to https://pickup02.herokuapp.com/
+To access site, go to https://ppickupp.herokuapp.com/
 
 
 ## License
