@@ -15,11 +15,11 @@ body a {
 
 .container{
   padding-top: 15px;
-  padding-bottom: 25px;
+  padding-bottom: 15px;
 }
 
 .row{
-  height: 90vh;
+  height: flex;
 }
 
 .input:focus{
@@ -69,6 +69,7 @@ button[disabled]{
   background-image: url("./assets/marbs.jpg");
   border-radius: 5px;
   padding-top: 15px;
+  padding-bottom: 5px;
   box-shadow:  0 0 20px black;
   height: 100%;
 }
@@ -101,16 +102,15 @@ button[disabled]{
 
 .home {
   color: black;
-  /* background-image: linear-gradient(0deg, #0e2b1438 10%, #3d423faf 100%), url(./assets/parkBg.jpg); */
   background-color: black;
   border-radius: 5px;
-  padding: 15px 15px;
+  padding: 5px 5px;
   box-shadow:  0 0 20px black;
   /* display: flex; */
   background-size: cover;
   border-style: solid;
   opacity: 100%;
-  height: 80%;
+  height: 85%;
   display: flex;
 }
 
@@ -140,8 +140,8 @@ button[disabled]{
   z-index: 1;
   background: transparent;
   position: absolute;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-top: 15px;
+  margin-left: 15px;
 }
 
 #frame {
