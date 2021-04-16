@@ -1,5 +1,6 @@
 import React, { Image, LinearGradient } from "react";
 import parkBg from '../assets/parkBg.jpg'
+import pickUpLogo from '../assets/pickUpLogo.png'
 // import UserService from "../services/user.service";
 
 const Home = () => {
@@ -27,13 +28,16 @@ const Home = () => {
             src={parkBg} 
             alt="load" 
             className="homePhoto"
-            style={{
-                // position: 'absolute'
-                backgroundImage: 'linear-gradient(0deg, #00000038 10%, #ffffff44 100%)'
-            }}
-            >
-                
+            >   
             </img>
+            
+            <img
+            src={pickUpLogo}
+            className='pickUpLogo'
+            ></img>
+            <div className="logoDiv">
+            </div>
+            <p></p>
         </div>
     )
 }
