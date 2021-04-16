@@ -4,7 +4,6 @@ import pickUpLogo from '../assets/pickUpLogo.png'
 // import UserService from "../services/user.service";
 
 const Home = () => {
-    // const [content, setContent] = useState('');
 
     // useEffect(() => {
     //     UserService.getPublicContent().then(
@@ -28,6 +27,11 @@ const Home = () => {
             src={parkBg} 
             alt="load" 
             className="homePhoto"
+            style={{
+                width: '100%',
+                height: '100%',
+                opacity: '75%'
+            }}
             >   
             </img>
             

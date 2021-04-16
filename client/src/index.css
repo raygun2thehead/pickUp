@@ -119,12 +119,12 @@ button[disabled]{
    z-index:1;
 }
 
-.homePhoto {
+/* .homePhoto {
    width:100%;
    height:100%;
    z-index:0;
    opacity: 75%;
-}
+} */
 
 /* .logoDiv {
   width: 100%;
