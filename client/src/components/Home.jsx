@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { Image, LinearGradient } from "react";
 import parkBg from '../assets/parkBg.jpg'
+import pickUpLogo from '../assets/pickUpLogo.png'
 // import UserService from "../services/user.service";
 
 const Home = () => {
@@ -23,7 +24,20 @@ const Home = () => {
 
     return (
         <div className="home">
-            {/* <img src={parkBg} alt="load" className="HomePhoto" /> */}
+            <img 
+            src={parkBg} 
+            alt="load" 
+            className="homePhoto"
+            >   
+            </img>
+            
+            <img
+            src={pickUpLogo}
+            className='pickUpLogo'
+            ></img>
+            <div className="logoDiv">
+            </div>
+            <p></p>
         </div>
     )
 }
