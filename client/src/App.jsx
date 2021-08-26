@@ -1,10 +1,9 @@
 import React from 'react'
-import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
-import Home from './components/Home';
-import PickUps from './components/PickUps';
-import Map2 from './components/Map2';
+import Home from './pages/Home';
+import PickUps from './pages/PickUps';
+import Map2 from './pages/Map2';
 
 
 function App() {
@@ -12,11 +11,7 @@ function App() {
   return (
     <Router>
         <div className="container">
-          <div className="row">
-            <div className="col-md-3">
-              <Sidebar />
-            </div>
-            <div className="col-md-9 main">
+            <div className=" main">
               <Navbar />
               <Switch>
                 <Route exact path="/">
@@ -31,7 +26,6 @@ function App() {
                 </Route>
               </Switch>
             </div>
-          </div>
         </div>
     </Router>
   );
