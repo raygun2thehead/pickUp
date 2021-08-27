@@ -1,156 +1,43 @@
-import React, { useState, useEffect } from "react";
-import Form from "react-bootstrap/Form";
-// import Button from "react-bootstrap/Button";
-import API from "../utils/API";
-import { Link } from "react-router-dom";
-import { useUserContext } from "../utils/UserContext";
-import { Redirect } from "react-router-dom";
-// import { Container } from "../components/Grid";
+import React, { useState, useContext, useEffect } from 'react'
+import { StateContext } from '../utils/contexts'
+import {useResource} from 'react-request-hook'
+import {useInput} from 'react-hookedup'
 
-function Login({ useremail }) {
+export default function Login () {
+    const { dispatch } = useContext(StateContext)
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [state, dispatch] = useUserContext();
+    const { value: username, bindToInput: bindUsername } = useInput('')
+    const { value: password, bindToInput: bindPassword } = useInput('')
 
-  useEffect(() => {
-    //checks local storage to update state if state is empty
-    let storageStatusId = JSON.parse(localStorage.getItem("_id"));
-    let storageStatusEmail = JSON.parse(localStorage.getItem("email"));
-    let storageStatusCreated = JSON.parse(localStorage.getItem("created"));
-    let storageStatusGoing = JSON.parse(localStorage.getItem("going"));
-    if (state._id === "" && storageStatusId) {
-      dispatch({
-        type: "setCurrentUser",
-        email: storageStatusEmail,
-        _id: storageStatusId,
-        created: storageStatusCreated,
-        going: storageStatusGoing,
-      });
-    } else {
-      return;
-    }
-  }, [state._id, dispatch]);
+    const [loginFailed, setLoginFailed] = useState(false)
 
+    const [user,login] = useResource((username, password) => ({
+        url: `/login/${encodeURI(username)}/${encodeURI(password)}`, 
+        method: 'get'
+    })) 
 
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log(state.email);
-  }
-
-  //sets local storage
-  const setLocal = (data) => {
-
-    if (data.created.length && data.going.length) {
-      localStorage.setItem("_id", JSON.stringify(data._id));
-      localStorage.setItem("email", JSON.stringify(data.email));
-      localStorage.setItem("created", JSON.stringify(data.created));
-      localStorage.setItem("going", JSON.stringify(data.going));
-    }
-    else if (data.created.length && !data.going.length) {
-      localStorage.setItem("_id", JSON.stringify(data._id));
-      localStorage.setItem("email", JSON.stringify(data.email));
-      localStorage.setItem("created", JSON.stringify(data.created));
-      localStorage.setItem("going", JSON.stringify([]));
-    }
-    else if (!data.created.length && data.going.length) {
-      localStorage.setItem("_id", JSON.stringify(data._id));
-      localStorage.setItem("email", JSON.stringify(data.email));
-      localStorage.setItem("created", JSON.stringify([]));
-      localStorage.setItem("going", JSON.stringify(data.going));
-    }
-    else {
-      localStorage.setItem("_id", JSON.stringify(data._id));
-      localStorage.setItem("email", JSON.stringify(data.email));
-      localStorage.setItem("created", JSON.stringify([]));
-      localStorage.setItem("going", JSON.stringify([]));
-    }
-
-  };
-
-  //sets state
-  const setState = () => {
-
-    let _id = JSON.parse(localStorage.getItem("_id"));
-    let email = JSON.parse(localStorage.getItem("email"));
-    let created = JSON.parse(localStorage.getItem("created"));
-    let going = JSON.parse(localStorage.getItem("going"));
-
-    dispatch({
-      type: "setCurrentUser",
-      _id: _id,
-      email: email,
-      created: created,
-      going: going,
-    });
-
-  }
-
-  //logs user in, invokes setStorage and setState
-  const login = () => {
-    API.userLogin({
-      email: email,
-      password: password,
-    }).then(
-      (res) => {
-        if (res.status === 200) {
-          if (res.data.email === email) {
-            setLocal(res.data);
-            setState();
-            window.location = "/user";
-          }
+    useEffect(() => {
+        if (user && user.data) {
+            if (user.data.length > 0) {
+                setLoginFailed(false)
+                dispatch({ type: 'LOGIN', username: user.data[0].username})
+            } else {
+                setLoginFailed(true)
+            }
         }
-      },
-      () => {
-        console.log("Login Failed");
-      }
-    );
-  };
+        if (user && user.error) {
+            setLoginFailed(true)
+        }
+    }, [user])
 
-  return (
-    <div className="col-md-12">
-      <div className="card card-container">
-
-        {useremail && <Redirect to="/user" />}
-        <Form onSubmit={handleSubmit}>
-          <Form.Group size="md" controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-            className="input"
-              autoFocus
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group size="md" controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-            className="input"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <Link to="/user">
-            <button
-              className="btn btn-primary btn-block"
-              size="md"
-              type="submit"
-              disabled={!validateForm()}
-              onClick={login}
-            >
-              Login
-            </button>
-          </Link>
-        </Form>
-      </div>
-    </div>
-  );
-};
-
-export default Login;
+    return(
+        <form onSubmit={e => {e.preventDefault(); login(username, password)}}>
+            <label htmlFor="login-username">Username:</label>
+            <input type="text" value={username} {...bindUsername} name="login-username" id="login-username" />
+            <label htmlFor="login-password">Password:</label>
+            <input type="password" value={password} {...bindPassword} name="login-password" id="login-password" />
+            <input type="submit" value="Login" disabled={username.length===0} />
+            {loginFailed && <span style={{ color: 'red' }}>Invalid username or password</span>}
+        </form>
+    )
+}
