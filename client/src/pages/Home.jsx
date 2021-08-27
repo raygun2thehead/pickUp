@@ -1,4 +1,4 @@
-import React, { Image, LinearGradient } from "react";
+import React from "react";
 import parkBg from '../assets/parkBg.jpg'
 import pickUpLogo from '../assets/pickUpLogo.png'
 // import UserService from "../services/user.service";
@@ -36,7 +36,7 @@ const Home = () => {
             </img>
             
             <img
-            src={pickUpLogo}
+            src={pickUpLogo} alt='logo'
             className='pickUpLogo'
             ></img>
             <div className="logoDiv">
