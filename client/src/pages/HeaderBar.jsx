@@ -10,7 +10,7 @@ export default function HeaderBar () {
     const {user} = state
     
     return (
-        <div>
+        <div className='headerBar'>
         <React.Suspense fallback={'Loading...'}>
           <UserBar />
           <Navbar />

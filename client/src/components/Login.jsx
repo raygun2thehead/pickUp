@@ -32,11 +32,11 @@ export default function Login () {
 
     return(
         <form onSubmit={e => {e.preventDefault(); login(username, password)}}>
-            <label htmlFor="login-username">Username:</label>
-            <input type="text" value={username} {...bindUsername} name="login-username" id="login-username" />
-            <label htmlFor="login-password">Password:</label>
-            <input type="password" value={password} {...bindPassword} name="login-password" id="login-password" />
-            <input type="submit" value="Login" disabled={username.length===0} />
+            <label htmlFor="login-username" className='userBarItem'>Username:</label>
+            <input type="text" value={username} {...bindUsername} name="login-username" id="login-username" className='userBarItem' />
+            <label htmlFor="login-password" className='userBarItem'>Password:</label>
+            <input type="password" value={password} {...bindPassword} name="login-password" id="login-password" className='userBarItem' />
+            <input type="submit" value="Login" disabled={username.length===0} className='userBarItem' />
             {loginFailed && <span style={{ color: 'red' }}>Invalid username or password</span>}
         </form>
     )

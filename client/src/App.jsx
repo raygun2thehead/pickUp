@@ -1,6 +1,6 @@
 import React, {useEffect, useReducer} from 'react'
-import HeaderBar from './pages/HeaderBar'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import HeaderBar from './pages/HeaderBar'
 import Home from './pages/Home';
 import PickUps from './pages/PickUps';
 import Map2 from './pages/Map2';
