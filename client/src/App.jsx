@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import Home from './pages/Home';
 import PickUps from './pages/PickUps';
 import Map2 from './pages/Map2';
-import appReducer from './utils/reducers'
-import {StateContext} from './utils/contexts'
+import appReducer from './reducers'
+import {StateContext} from './contexts'
 
 
 function App() {

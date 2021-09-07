@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { StateContext } from '../utils/contexts'
+import { StateContext } from '../contexts'
 import {useResource} from 'react-request-hook'
 import {useInput} from 'react-hookedup'
 

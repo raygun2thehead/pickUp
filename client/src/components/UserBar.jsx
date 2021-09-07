@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { StateContext } from '../utils/contexts'
+import { StateContext } from '../contexts'
 
 import Login from './Login'
 import Register from './Register'

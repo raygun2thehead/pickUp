@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 // import CreatePost from '../post/CreatePost'
 import Navbar from '../components/Navbar'
 import UserBar from '../components/UserBar'
-import {StateContext} from '../utils/contexts'
+import {StateContext} from '../contexts'
 
 export default function HeaderBar () {
 

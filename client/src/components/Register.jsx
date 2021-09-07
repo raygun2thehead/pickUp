@@ -1,7 +1,7 @@
 import React, { useContext, useEffect} from 'react'
 import {useResource} from 'react-request-hook'
 import {useInput} from 'react-hookedup'
-import {StateContext} from '../utils/contexts'
+import {StateContext} from '../contexts'
 
 export default function Register() {
     const { dispatch } = useContext(StateContext)
