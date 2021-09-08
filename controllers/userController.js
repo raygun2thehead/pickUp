@@ -8,24 +8,24 @@ module.exports = {
 
   //returns the id of the current user when they sign up.
   userCreate: async (req, res) => {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
     if (
-      !email ||
+      !username ||
       !password ||
-      typeof email !== "string" ||
+      typeof username !== "string" ||
       typeof password !== "string"
     ) {
       res.send("Improper Values");
       return;
     }
     //Validation
-    db.User.findOne({ email }, async (err, doc) => {
+    db.User.findOne({ username }, async (err, doc) => {
       if (err) throw err;
       if (doc) res.send("User Already Exists");
       if (!doc) {
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = {
-          email,
+          username,
           password: hashedPassword,
         };
         //this sets the state for the app when a user logs in
@@ -34,7 +34,7 @@ module.exports = {
             //used to create the userState
             const userObj = {
               _id: dbModel._id,
-              email: dbModel.email,
+              username: dbModel.username,
               created: dbModel.created,
               going: dbModel.going,
             }

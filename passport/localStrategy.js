@@ -2,12 +2,12 @@ const User = require("../models/user");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 
-const strategy = new LocalStrategy( // Our user will sign in using an email, rather than a "username"
+const strategy = new LocalStrategy( // Our user will sign in using an username, rather than a "username"
   {
-    usernameField: "email",
+    usernameField: "username",
   },
-  (email, password, done) => {
-    User.findOne({ email: email }, (err, user) => {
+  (username, password, done) => {
+    User.findOne({ username: username }, (err, user) => {
       if (err) throw err;
       if (!user) return done(null, false);
       bcrypt.compare(password, user.password, (err, result) => {

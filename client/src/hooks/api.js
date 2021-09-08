@@ -8,9 +8,9 @@ export function useAPILogin () {
 }
 
 export function useAPIRegister() {
-    return useResource((email, password) => ({
+    return useResource((username, password) => ({
         url: '/user/register',
         method: 'post',
-        data: {email, password}
+        data: {username, password}
     }))
 }

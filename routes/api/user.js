@@ -10,7 +10,7 @@ router.route("/register").post(userController.userCreate);
 router.route("/login").post(passport.authenticate("local"), (req, res) => {
   res.json({
     _id: req.user.id,
-    email: req.user.email,
+    username: req.user.username,
     created: req.user.created,
     going: req.user.going,
   });
