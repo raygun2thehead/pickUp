@@ -1,26 +1,22 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { StateContext } from '../contexts'
-import {useResource} from 'react-request-hook'
+import React, { useState, useEffect } from 'react'
 import {useInput} from 'react-hookedup'
+import {useDispatch, useAPILogin} from '../hooks'
 
 export default function Login () {
-    const { dispatch } = useContext(StateContext)
+    const dispatch = useDispatch()
 
     const { value: username, bindToInput: bindUsername } = useInput('')
     const { value: password, bindToInput: bindPassword } = useInput('')
 
     const [loginFailed, setLoginFailed] = useState(false)
 
-    const [user,login] = useResource((username, password) => ({
-        url: `/login/${encodeURI(username)}/${encodeURI(password)}`, 
-        method: 'get'
-    })) 
+    const [user,login] = useAPILogin()
 
     useEffect(() => {
         if (user && user.data) {
             if (user.data.length > 0) {
                 setLoginFailed(false)
-                dispatch({ type: 'LOGIN', username: user.data[0].username})
+                dispatch({ type: 'LOGIN', username: user.data[0].email})
             } else {
                 setLoginFailed(true)
             }
@@ -28,11 +24,11 @@ export default function Login () {
         if (user && user.error) {
             setLoginFailed(true)
         }
-    }, [user])
+    }, [dispatch, user])
 
     return(
         <form onSubmit={e => {e.preventDefault(); login(username, password)}}>
-            <label htmlFor="login-username" className='userBarItem'>Username:</label>
+            <label htmlFor="login-username" className='userBarItem'>Email:</label>
             <input type="text" value={username} {...bindUsername} name="login-username" id="login-username" className='userBarItem' />
             <label htmlFor="login-password" className='userBarItem'>Password:</label>
             <input type="password" value={password} {...bindPassword} name="login-password" id="login-password" className='userBarItem' />

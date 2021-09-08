@@ -2,7 +2,7 @@ function userReducer(state, action) {
     switch (action.type) {
         case 'LOGIN':
         case 'REGISTER':
-            return action.username
+            return action.email
         case 'LOGOUT':
             return ''
         default:
