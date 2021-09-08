@@ -1,9 +1,10 @@
 import {useResource} from 'react-request-hook'
 
 export function useAPILogin () {
-    return useResource((username, password) => ({
-        url: `/login/${encodeURI(username)}/${encodeURI(password)}`, 
-        method: 'get'
+    return useResource(({userObj}) => ({
+        url: '/user/login', 
+        method: 'get',
+        data: {userObj}
     })) 
 }
 

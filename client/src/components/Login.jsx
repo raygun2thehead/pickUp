@@ -16,7 +16,7 @@ export default function Login () {
         if (user && user.data) {
             if (user.data.length > 0) {
                 setLoginFailed(false)
-                dispatch({ type: 'LOGIN', username: user.data[0].email})
+                dispatch({ type: 'LOGIN', username: user.data[0]})
             } else {
                 setLoginFailed(true)
             }

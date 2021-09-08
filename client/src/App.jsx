@@ -9,7 +9,7 @@ import {StateContext} from './contexts'
 
 
 function App() {
-  const [state, dispatch] = useReducer(appReducer, { user: '', posts: [], error: '' })
+  const [state, dispatch] = useReducer(appReducer, { username: '', created: [], going: [], error: '' })
   const { user } = state
 
   useEffect(() => {
