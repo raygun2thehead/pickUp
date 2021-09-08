@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to top, #2b2933, #0b5310);
+  background-image: linear-gradient(to top, #3C3B3F, #605C3C);
   background-attachment: fixed;
 }
 
@@ -102,6 +102,12 @@ body a {
 
 .nav-item:hover{
   color: grey;
+}
+
+.navbar-nav {
+  padding: 0;
+  background-color: white;
+  float: left;
 }
 
 .home {
