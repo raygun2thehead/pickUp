@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import HeaderBar from './pages/HeaderBar'
 import Home from './pages/Home';
 import PickUps from './pages/PickUps';
-import Map2 from './pages/Map2';
+import Map2 from './pages/Map';
 import appReducer from './reducers'
 import {StateContext} from './contexts'
 
 
 function App() {
-  const [state, dispatch] = useReducer(appReducer, { username: '', created: [], going: [], error: '' })
+  const [state, dispatch] = useReducer(appReducer, { user: '', error: '' })
   const { user } = state
 
   useEffect(() => {
