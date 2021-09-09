@@ -59,16 +59,4 @@ router.post("/logout", (req, res) => {
   }
 });
 
-// router.route("/addIngredient")
-// .put(userController.addIng);
-
-// router.route("/shop/:userId")
-// .get(userController.findLatestIng);
-
-// router.route("/removeIngredient")
-// .put(userController.removeIng);
-
-// router.route("/removeFav")
-// .put(userController.removeFav);
-
 module.exports = router;
