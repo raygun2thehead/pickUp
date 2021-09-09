@@ -1,7 +1,7 @@
-import React, { Image, LinearGradient } from "react";
+import React from "react";
 import parkBg from '../assets/parkBg.jpg'
 import pickUpLogo from '../assets/pickUpLogo.png'
-// import UserService from "../services/user.service";
+
 
 const Home = () => {
 
@@ -30,13 +30,13 @@ const Home = () => {
             style={{
                 width: '100%',
                 height: '100%',
-                opacity: '75%'
+                opacity: '50%'
             }}
             >   
             </img>
             
             <img
-            src={pickUpLogo}
+            src={pickUpLogo} alt='logo'
             className='pickUpLogo'
             ></img>
             <div className="logoDiv">

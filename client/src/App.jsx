@@ -1,23 +1,30 @@
-import React from 'react'
-import Sidebar from './components/Sidebar'
-import Navbar from './components/Navbar'
+import React, {useEffect, useReducer} from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
-import Home from './components/Home';
-import PickUps from './components/PickUps';
-import Map2 from './components/Map2';
+import HeaderBar from './pages/HeaderBar'
+import Home from './pages/Home';
+import PickUps from './pages/PickUps';
+import Map2 from './pages/Map';
+import appReducer from './reducers'
+import {StateContext} from './contexts'
 
 
 function App() {
+  const [state, dispatch] = useReducer(appReducer, { user: '', error: '' })
+  const { user } = state
+
+  useEffect(() => {
+    if (user) {
+      document.title = `${user} - PickUp`
+    } else {
+      document.title = `PickUp`
+    }
+  }, [user])
   
   return (
+    <StateContext.Provider value={{state, dispatch}}>
     <Router>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-3">
-              <Sidebar />
-            </div>
-            <div className="col-md-9 main">
-              <Navbar />
+            <div className=" main">
+              <HeaderBar />
               <Switch>
                 <Route exact path="/">
                   <Home />
@@ -31,9 +38,8 @@ function App() {
                 </Route>
               </Switch>
             </div>
-          </div>
-        </div>
     </Router>
+    </StateContext.Provider>
   );
 }
 

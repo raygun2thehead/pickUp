@@ -4,17 +4,39 @@ const passport = require("../../passport");
 const userController = require("../../controllers/userController");
 
 //user sign up
-router.route("/register").post(userController.userCreate);
+router
+  .route("/register")
+  .post(userController.userCreate);
+
+router
+  .route('/login')
+  .post(function (req, res, next) {
+    console.log('routes/user.js, login, req.body: ');
+    console.log(req.body)
+    next()
+  },
+    passport.authenticate('local'),
+    (req, res) => {
+      console.log('logged in', req.user);
+      var userObj = {
+        _id: req.user.id,
+        username: req.user.username,
+        created: req.user.created,
+        going: req.user.going
+      };
+      res.send(userObj);
+    }
+  )
 
 //user login
-router.route("/login").post(passport.authenticate("local"), (req, res) => {
-  res.json({
-    _id: req.user.id,
-    email: req.user.email,
-    created: req.user.created,
-    going: req.user.going,
-  });
-});
+// router.route("/login").post(passport.authenticate("local"), (req, res) => {
+//   res.json({
+//     _id: req.user.id,
+//     username: req.user.username,
+//     created: req.user.created,
+//     going: req.user.going,
+//   });
+// });
 
 // //gets last index of fav array 
 // router.route("/:userId")
@@ -36,17 +58,5 @@ router.post("/logout", (req, res) => {
     res.send({ msg: "no user to log out" });
   }
 });
-
-// router.route("/addIngredient")
-// .put(userController.addIng);
-
-// router.route("/shop/:userId")
-// .get(userController.findLatestIng);
-
-// router.route("/removeIngredient")
-// .put(userController.removeIng);
-
-// router.route("/removeFav")
-// .put(userController.removeFav);
 
 module.exports = router;

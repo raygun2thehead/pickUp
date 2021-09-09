@@ -2,14 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { UserProvider } from './utils/UserContext';
+import { RequestProvider } from 'react-request-hook'
+import axios from 'axios'
 import registerServiceWorker from "./registerServiceWorker"
+
+const axiosInstance = axios.create({
+  baseURL: 'http://localhost:3000/api'
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserProvider>
+    <RequestProvider value={axiosInstance}>
     <App />
-    </UserProvider>
+    </RequestProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
