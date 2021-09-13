@@ -60,11 +60,11 @@ router.get('/logout', authMiddleware.logoutUser, (req, res, next) => {
   res.json('User logged out successfully');
 });
 
-router.get('/admin', authMiddleware.isAdmin, (req, res, next) => {
-  res.json({
-    user: req.user,
-    loggedIn: true,
-  });
-});
+// router.get('/admin', authMiddleware.isAdmin, (req, res, next) => {
+//   res.json({
+//     user: req.user,
+//     loggedIn: true,
+//   });
+// });
 
 module.exports = router;
