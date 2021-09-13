@@ -37,7 +37,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://localhost/react-auth-hooks', {
+  .connect(process.env.MONGODB_URI || 'mongodb://localhost/pickUp', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
