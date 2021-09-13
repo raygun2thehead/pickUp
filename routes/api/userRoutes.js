@@ -26,16 +26,7 @@ router.post('/signup', (req, res, next) => {
       return res.json('user already exists');
     }
     if (!user) {
-      db.User.findOne({ email: req.body.email }, (error, useremail) => {
-        if (error) throw error;
-        if (useremail) {
-          return res.json('email is already in use');
-        }
-        if (!useremail) {
           const newUser = new db.User({
-            firstname: req.body.firstname,
-            lastname: req.body.lastname,
-            email: req.body.email,
             username: req.body.username,
             password: req.body.password,
           });
@@ -45,8 +36,6 @@ router.post('/signup', (req, res, next) => {
             console.log('user saved!');
             res.redirect(307, '/api/users/login');
           });
-        }
-      });
     }
   }).catch((error) => {
     console.log('Issue searching db for user ', error);
