@@ -146,17 +146,18 @@ function App() {
     <Router>
             <div className="main">
               <HeaderBar />
-              <div>
               <Switch>
+              <div>
                 {/* <Route exact path="/login">
                   <Home />
                 </Route> */}
-                <Route exact path="/">
+                </div>
+              </Switch>
+              <Switch>
+                
+              <Route exact path="/signup">
                   <Signup />
                 </Route>
-              </Switch>
-              </div>
-              <Switch>
                 <Route exact path="/">
                   <Home />
                 </Route>
