@@ -18,12 +18,10 @@ const Navbar = () => {
 
 	return (
 		<div className="navbar">
-			<div className="navbarActive">
-				{active}
-			</div>
-			<div className="nav">
+			<div className="userbar">
+				
 
-				{loggedIn ? (
+			{loggedIn ? (
 					<div className="navbar-nav ml-auto">
 						<li className="nav-item">
 							<Link to={"/profile"} className="nav-link">
@@ -37,21 +35,21 @@ const Navbar = () => {
 						</li>
 					</div>
 				) : (
-						<div className="navbar-nav ml-auto">
-							<li className="nav-item">
-								<Link to={"/login"} className="nav-link">
-									Login
+					<div className="navbar-nav ml-auto">
+							<Link to={"/login"} className="nav-link">
+								Login
               </Link>
-							</li>
-
-							<li className="nav-item">
-								<Link to={"/signup"} className="nav-link">
-									Sign Up
+							<Link to="/signup" className="nav-link">
+								Sign Up
               </Link>
-							</li>
-						</div>
-					)}
-
+					</div>
+				)}
+			</div>
+			
+			<div className="navbarActive">
+				{active}
+			</div>
+			<div className="nav">
 				{active !== 'Home' &&
 					<Link to="/">
 						<div className="nav-item" onClick={() => setActive('Home')}>Home</div>

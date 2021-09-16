@@ -9,7 +9,9 @@ import HeaderBar from './pages/HeaderBar'
 // import { Container } from 'reactstrap';
 import PickUps from './pages/PickUps';
 import Map2 from './pages/Map';
+import Signup from './components/Signup'
 import UserContext from './utils/UserContext';
+
 
 
 function App() {
@@ -142,20 +144,18 @@ function App() {
   return (
     <UserContext.Provider value={contextValue}>
     <Router>
-            <div className=" main">
+            <div className="main">
               <HeaderBar />
-              <Switch >
-              <Route
-                exact
-                path="/login"
-                render={() => <Auth action="login" />}
-              />
-              <Route
-                exact
-                path="/signup"
-                render={() => <Auth action="signup" />}
-              />
+              <div>
+              <Switch>
+                {/* <Route exact path="/login">
+                  <Home />
+                </Route> */}
+                <Route exact path="/">
+                  <Signup />
+                </Route>
               </Switch>
+              </div>
               <Switch>
                 <Route exact path="/">
                   <Home />
