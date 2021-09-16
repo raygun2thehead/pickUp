@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 // import CreatePost from '../post/CreatePost'
 import Navbar from '../components/Navbar'
-import UserBar from '../components/UserBar'
+// import UserBar from '../components/UserBar'
 import {StateContext} from '../contexts'
 
 export default function HeaderBar () {
@@ -12,7 +12,7 @@ export default function HeaderBar () {
     return (
         <div className='headerBar'>
         <React.Suspense fallback={'Loading...'}>
-          <UserBar />
+          {/* <UserBar /> */}
           <Navbar />
         </React.Suspense>
         <br />

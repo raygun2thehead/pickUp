@@ -1,22 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-// import AuthService from "../services/auth.service";
+import UserContext from '../utils/UserContext';
 
 const Navbar = () => {
-
-	// const [currentUser, setCurrentUser] = useState(undefined);
-	// useEffect(() => {
-	// 	const user = AuthService.getCurrentUser();
-
-	// 	if (user) {
-	// 		setCurrentUser(user);
-	// 	}
-	// }, []);
-
-	// const logOut = () => {
-	// 	AuthService.logout();
-	// };
+	const { loggedIn, logout } = useContext(UserContext);
 
 	const [active, setActive] = useState('')
 	useEffect(() => {
@@ -35,24 +22,16 @@ const Navbar = () => {
 				{active}
 			</div>
 			<div className="nav">
-				{/* {currentUser && (
-					<li className="nav-item">
-						<Link to={"/user"} className="nav-link">
-							User
-              </Link>
-					</li>
-				)}
 
-
-				{currentUser ? (
+				{loggedIn ? (
 					<div className="navbar-nav ml-auto">
 						<li className="nav-item">
 							<Link to={"/profile"} className="nav-link">
-								{currentUser.username}
+								{loggedIn.username}
 							</Link>
 						</li>
 						<li className="nav-item">
-							<a href="/login" className="nav-link" onClick={logOut}>
+							<a href="/login" className="nav-link" onClick={logout}>
 								LogOut
               </a>
 						</li>
@@ -66,12 +45,12 @@ const Navbar = () => {
 							</li>
 
 							<li className="nav-item">
-								<Link to={"/register"} className="nav-link">
+								<Link to={"/signup"} className="nav-link">
 									Sign Up
               </Link>
 							</li>
 						</div>
-					)} */}
+					)}
 
 				{active !== 'Home' &&
 					<Link to="/">
