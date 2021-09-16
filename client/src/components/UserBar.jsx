@@ -2,7 +2,7 @@ import React from 'react'
 import { useUserState } from '../hooks'
 
 import Login from './Login'
-import Register from './Register'
+import Register from './Signup'
 
 const Logout = React.lazy(() => import('./Logout'))
 
