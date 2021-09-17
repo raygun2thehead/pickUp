@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import API from './utils/API'
 import Home from './pages/Home';
 // import Profile from './pages/Profile';
-import Auth from './pages/Auth';
+// import Auth from './pages/Auth';
 // import NoMatch from './pages/NoMatch';
 import HeaderBar from './pages/HeaderBar'
 // import { Container } from 'reactstrap';
 import PickUps from './pages/PickUps';
 import Map2 from './pages/Map';
 import Signup from './components/Signup'
+import Login from './components/Login'
 import UserContext from './utils/UserContext';
 
 
@@ -148,13 +149,13 @@ function App() {
               <HeaderBar />
               <Switch>
               <div>
-                {/* <Route exact path="/login">
-                  <Home />
-                </Route> */}
+                
                 </div>
               </Switch>
               <Switch>
-                
+              <Route exact path="/login">
+                  <Login />
+                </Route>
               <Route exact path="/signup">
                   <Signup />
                 </Route>

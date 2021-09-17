@@ -1,39 +1,37 @@
-import React, { useState, useEffect } from 'react'
-import {useInput} from 'react-hookedup'
-import {useDispatch, useAPILogin} from '../hooks'
+import React, { useContext } from 'react';
+// import { Button, Form, FormGroup, Label, Input } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
+import UserContext from '../utils/UserContext';
 
 export default function Login () {
-    const dispatch = useDispatch()
-
-    const { value: username, bindToInput: bindUsername } = useInput('')
-    const { value: password, bindToInput: bindPassword } = useInput('')
-
-    const [loginFailed, setLoginFailed] = useState(false)
-
-    const [user,login] = useAPILogin()
-
-    useEffect(() => {
-        if (user && user.data) {
-            if (user.data.length > 0) {
-                setLoginFailed(false)
-                dispatch({ type: 'LOGIN', username: user.data[0].username})
-            } else {
-                setLoginFailed(true)
-            }
-        }
-        if (user && user.error) {
-            setLoginFailed(true)
-        }
-    }, [dispatch, user])
+    const { userData, handleInputChange, handleLogin } = useContext(UserContext);
 
     return(
-        <form onSubmit={e => {e.preventDefault(); login(username, password)}}>
-            <label htmlFor="login-username" className='userBarItem'>Username:</label>
-            <input type="text" value={username} {...bindUsername} name="login-username" id="login-username" className='userBarItem' />
+        <div>
+        <form>
+            <label 
+            htmlFor="username" className='userBarItem'>Username:</label>
+            <input 
+            type="text" 
+            name="username" 
+            id="username"
+            placeholder='username'
+            value={userData.username}
+            onChange={handleInputChange}
+            className='userBarItem' />
             <label htmlFor="login-password" className='userBarItem'>Password:</label>
-            <input type="password" value={password} {...bindPassword} name="login-password" id="login-password" className='userBarItem' />
-            <input type="submit" value="Login" disabled={username.length===0} className='userBarItem' />
-            {loginFailed && <span style={{ color: 'red' }}>Invalid username or password</span>}
+            <input 
+            type="password" 
+            name="password" 
+            id="password"
+            placeholder='password'
+            value={userData.password}
+            onChange={handleInputChange}
+            className='userBarItem' />
+            <button onClick={handleLogin} block>
+                Login
+            </button>
         </form>
+        </div>
     )
 }
