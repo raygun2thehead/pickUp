@@ -39,9 +39,6 @@ const Home = () => {
             src={pickUpLogo} alt='logo'
             className='pickUpLogo'
             ></img>
-            <div className="logoDiv">
-            </div>
-            <p></p>
         </div>
     )
 }

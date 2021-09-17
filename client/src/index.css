@@ -31,33 +31,6 @@ body a {
   border-color: black;
 }
 
-/* body input{
-  width: '2em';
-} */
-
-/* .btn:disabled, */
-/* button[disabled]{
-  border: 1px solid #999999;
-  background-color: black;
-}
-
-.btn:hover{
-  border: 1px solid #999999;
-  background-color: black;
-}
-
-.btn{
-  height: 40px;
-  width: auto;
-  margin: .5em;
-  border-radius: 10px;
-  box-shadow:  0 0 10px black;
-  border: solid;
-  border-radius: 5px;
-  border-color: black;
-  background-color: black;
-} */
-
 .card {
   border: none;
   float: left;

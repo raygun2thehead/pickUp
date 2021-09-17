@@ -19,10 +19,8 @@ const Navbar = () => {
 	return (
 		<div className="navbar">
 			<div className="userbar">
-				
-
-			{loggedIn ? (
-					<div className="navbar-nav ml-auto">
+				{loggedIn ? (
+					<div className="nav">
 						<li className="nav-item">
 							<Link to={"/profile"} className="nav-link">
 								{loggedIn.username}
@@ -35,17 +33,18 @@ const Navbar = () => {
 						</li>
 					</div>
 				) : (
-					<div className="navbar-nav ml-auto">
-							<Link to={"/login"} className="nav-link">
-								Login
+					<div className="nav">
+						<Link to="/login"
+							className="nav-link">
+							Login
               </Link>
-							<Link to="/signup" className="nav-link">
-								Sign Up
+						<Link to="/signup" className="nav-link">
+							Sign Up
               </Link>
 					</div>
 				)}
 			</div>
-			
+
 			<div className="navbarActive">
 				{active}
 			</div>

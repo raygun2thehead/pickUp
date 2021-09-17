@@ -13,8 +13,6 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import UserContext from './utils/UserContext';
 
-
-
 function App() {
   const [userData, setUserData] = useState({
     username: '',
