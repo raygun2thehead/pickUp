@@ -1,22 +1,26 @@
-import React from 'react'
-import { useUserState } from '../hooks'
-
+import React, {useContext} from 'react'
+import { Switch, Route } from 'react-router'
+import UserContext from '../utils/UserContext'
 import Login from './Login'
-import Register from './Signup'
+import Signup from './Signup'
 
-const Logout = React.lazy(() => import('./Logout'))
+// const Logout = React.lazy(() => import('./Logout'))
 
 export default function UserBar () {
-    const user = useUserState()
+    const {loggedIn} = useContext(UserContext)
     
-    if (user) {
-        return <Logout />
-    } else {
-        return (
-            <React.Fragment>
+    return (
+        <div>
+            {loggedIn ? (
+                <div></div>
+            ):(
+                <div>
                 <Login />
-                <Register />
-            </React.Fragment>
-        )
-    }
+               
+                <Signup />
+               
+                </div>
+            )}
+        </div>
+    )
 }

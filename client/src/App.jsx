@@ -11,6 +11,7 @@ import PickUps from './pages/PickUps';
 import Map2 from './pages/Map';
 import Signup from './components/Signup'
 import Login from './components/Login'
+import UserBar from './components/UserBar'
 import UserContext from './utils/UserContext';
 
 function App() {
@@ -145,18 +146,23 @@ function App() {
     <Router>
             <div className="main">
               <HeaderBar />
+              {/* <UserBar /> */}
+              
+            {/* <Switch>
+                <Route exact path='/login'>
+                <Login />
+                </Route>
+                <Route path='/signup'>
+                <Signup />
+                </Route>
+            </Switch> */}
               <Switch>
-              <div>
-                
-                </div>
-              </Switch>
-              <Switch>
-              <Route exact path="/login">
+              {/* <Route exact path="/login">
                   <Login />
                 </Route>
               <Route exact path="/signup">
                   <Signup />
-                </Route>
+                </Route> */}
                 <Route exact path="/">
                   <Home />
                 </Route>

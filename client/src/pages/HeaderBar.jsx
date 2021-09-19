@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import Navbar from '../components/Navbar'
-// import UserBar from '../components/UserBar'
+import UserBar from '../components/UserBar'
 // import pickUpLogo from '../assets/pickUpLogo.png'
 
 
@@ -13,8 +13,9 @@ export default function HeaderBar () {
             className='pickUpLogo'
             ></img> */}
         <React.Suspense fallback={'Loading...'}>
-          {/* <UserBar /> */}
           <Navbar />
+                    <UserBar />
+
         </React.Suspense>
         <br />
         {/* {user && <p>Hello {user}</p>} */}
