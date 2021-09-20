@@ -27,9 +27,9 @@ function App() {
   }, [user])
 
   
-  // useEffect(() => {
-  //   isLoggedIn();
-  // }, []);
+  useEffect(() => {
+    isLoggedIn();
+  }, []);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -100,18 +100,18 @@ function App() {
     }
   };
 
-  // const isLoggedIn = () => {
-  //   if (!loggedIn) {
-  //     API.isLoggedIn().then((user) => {
-  //       if (user.data.loggedIn) {
-  //         setLoggedin(true);
-  //         setUser(user.data.user);
-  //       } else {
-  //         console.log(user.data.message);
-  //       }
-  //     });
-  //   }
-  // };
+  const isLoggedIn = () => {
+    if (!loggedIn) {
+      API.isLoggedIn().then((user) => {
+        if (user.data.loggedIn) {
+          setLoggedin(true);
+          setUser(user.data.user);
+        } else {
+          console.log(user.data.message);
+        }
+      });
+    }
+  };
 
   const logout = () => {
     if (loggedIn) {
