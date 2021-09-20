@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-// import AuthService from "../services/auth.service";
+import UserContext from '../utils/UserContext';
+import { Container, Row, Col } from 'react-bootstrap';
+import Login from './Login'
+import Signup from "./Signup";
 
 const Navbar = () => {
+	const { loggedIn, logout } = useContext(UserContext);
 
-	// const [currentUser, setCurrentUser] = useState(undefined);
-	// useEffect(() => {
-	// 	const user = AuthService.getCurrentUser();
-
-	// 	if (user) {
-	// 		setCurrentUser(user);
-	// 	}
-	// }, []);
-
-	// const logOut = () => {
-	// 	AuthService.logout();
-	// };
+	const [showLogin, setShowLogin] = useState(false);
+	const login = () => setShowLogin(true);
+	
+	const [showSignup, setShowSignup] = useState(false);
+	const signup = () => setShowSignup(true);
 
 	const [active, setActive] = useState('')
 	useEffect(() => {
@@ -30,66 +26,63 @@ const Navbar = () => {
 	}, [active])
 
 	return (
-		<div className="navbar">
-			<div className="navbarActive">
-				{active}
-			</div>
-			<div className="nav">
-				{/* {currentUser && (
-					<li className="nav-item">
-						<Link to={"/user"} className="nav-link">
-							User
-              </Link>
-					</li>
-				)}
-
-
-				{currentUser ? (
-					<div className="navbar-nav ml-auto">
-						<li className="nav-item">
-							<Link to={"/profile"} className="nav-link">
-								{currentUser.username}
-							</Link>
-						</li>
-						<li className="nav-item">
-							<a href="/login" className="nav-link" onClick={logOut}>
-								LogOut
-              </a>
-						</li>
-					</div>
-				) : (
-						<div className="navbar-nav ml-auto">
+		<Container fluid>
+			<Row className="navbar">
+				<Col className="userbar">
+					{loggedIn ? (
+						<div className="userNav">
 							<li className="nav-item">
-								<Link to={"/login"} className="nav-link">
-									Login
-              </Link>
+								<Link to={"/profile"} className="nav-item">
+									{loggedIn.username}
+								</Link>
 							</li>
-
 							<li className="nav-item">
-								<Link to={"/register"} className="nav-link">
-									Sign Up
-              </Link>
+								<a href="/login" className="nav-item" onClick={logout}>
+									LogOut
+              </a>
 							</li>
 						</div>
-					)} */}
+					) : (
+						<div className="UserNav">
+							<a onClick={login} style={{cursor:'pointer'}}
+								className="nav-item">
+								Login
+              </a>
+							<a to="/signup" onClick={signup} className="nav-item">
+								Sign Up
+              </a>
+						</div>
+					)}
+				</Col>
+			</Row>
 
-				{active !== 'Home' &&
-					<Link to="/">
-						<div className="nav-item" onClick={() => setActive('Home')}>Home</div>
-					</Link>
-				}
-				{active !== 'Map' ?
-					<Link to="/map">
-						<div className="nav-item" onClick={() => setActive('Map')}>Map</div>
-					</Link> : null
-				}
-				{active !== 'PickUps' &&
-					<Link to="/pickups">
-						<div className="nav-item" onClick={() => setActive('PickUps')}>PickUps</div>
-					</Link>
-				}
-			</div>
-		</div>
+			<Row className='navbar'>
+				<Col className="navbarActive">
+					{active}
+				</Col>
+				<Col className="nav-item">
+					{active !== 'Home' &&
+						<Link to="/">
+							<div className="nav-item" onClick={() => setActive('Home')}>Home</div>
+						</Link>
+					}
+					{active !== 'Map' ?
+						<Link to="/map">
+							<div className="nav-item" onClick={() => setActive('Map')}>Map</div>
+						</Link> : null
+					}
+					{active !== 'PickUps' &&
+						<Link to="/pickups">
+							<div className="nav-item" onClick={() => setActive('PickUps')}>PickUps</div>
+						</Link>
+					}
+				</Col>
+			</Row>
+			<Row>
+				{showLogin ? <Login /> : null}
+				{showSignup ? <Signup /> : null}
+			</Row>
+		</Container>
 	)
 }
 

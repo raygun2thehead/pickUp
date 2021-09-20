@@ -1,23 +1,23 @@
 import React, {useContext} from 'react'
-// import CreatePost from '../post/CreatePost'
 import Navbar from '../components/Navbar'
-import UserBar from '../components/UserBar'
-import {StateContext} from '../contexts'
+// import pickUpLogo from '../assets/pickUpLogo.png'
+// import UserContext from '../utils/UserContext'
+
 
 export default function HeaderBar () {
+    // const user = useContext(UserContext) 
 
-    const {state} = useContext(StateContext)
-    const {user} = state
-    
     return (
         <div className='headerBar'>
+          {/* <img
+            src={pickUpLogo} alt='logo'
+            className='pickUpLogo'
+            ></img> */}
         <React.Suspense fallback={'Loading...'}>
-          <UserBar />
           <Navbar />
         </React.Suspense>
         <br />
-        {user && <p>Hello {user}</p>}
-        {/* {user && <CreatePost />} */}
+        {/* {user && <p>Hello {user}</p>} */}
         </div>
     )
 }

@@ -31,33 +31,6 @@ body a {
   border-color: black;
 }
 
-/* body input{
-  width: '2em';
-} */
-
-/* .btn:disabled, */
-/* button[disabled]{
-  border: 1px solid #999999;
-  background-color: black;
-}
-
-.btn:hover{
-  border: 1px solid #999999;
-  background-color: black;
-}
-
-.btn{
-  height: 40px;
-  width: auto;
-  margin: .5em;
-  border-radius: 10px;
-  box-shadow:  0 0 10px black;
-  border: solid;
-  border-radius: 5px;
-  border-color: black;
-  background-color: black;
-} */
-
 .card {
   border: none;
   float: left;
@@ -73,6 +46,8 @@ body a {
   height: 100%;
 }
 
+
+
 .userBarItem {
   margin: 2px;
   padding-right: 1px;
@@ -80,8 +55,9 @@ body a {
   font-size: smaller;
 }
 
-.form {
+form {
   display: flex;
+  z-index: 3;
 }
 
 .navbar {
@@ -92,16 +68,19 @@ body a {
 
 .navbarActive {
   font-size: 2em;
+  text-align: right;
 }
 
 .nav-item {
   margin: 2px;
-  float: left;
+  float: right;
   padding-right: 15px;
+  text-decoration: none;
 }
 
 .nav-item:hover{
   color: grey;
+  cursor: pointer;
 }
 
 .navbar-nav {
