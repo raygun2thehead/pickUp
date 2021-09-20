@@ -6,16 +6,16 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MemoryStore = require('memorystore')(session);
 const passport = require("passport");
-// const logger = require('morgan');
+const logger = require('morgan');
 const routes = require("./routes");
-const cookieParser = require("cookie-parser");
+// const cookieParser = require("cookie-parser");
 const dotenv = require('dotenv')
 
 dotenv.config();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(logger('dev'));
+app.use(logger('dev'));
 app.use(flash());
 app.use(express.static('public'));
 
@@ -54,7 +54,7 @@ app.use(
   }),
 );
 
-app.use(cookieParser())
+// app.use(cookieParser())
 app.use(passport.initialize());
 app.use(passport.session());
 
