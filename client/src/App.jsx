@@ -2,16 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import API from './utils/API'
 import Home from './pages/Home';
-// import Profile from './pages/Profile';
-// import Auth from './pages/Auth';
-// import NoMatch from './pages/NoMatch';
 import HeaderBar from './pages/HeaderBar'
-// import { Container } from 'reactstrap';
 import PickUps from './pages/PickUps';
 import Map2 from './pages/Map';
-import Signup from './components/Signup'
-import Login from './components/Login'
-import UserBar from './components/UserBar'
 import UserContext from './utils/UserContext';
 
 function App() {
@@ -146,23 +139,7 @@ function App() {
     <Router>
             <div className="main">
               <HeaderBar />
-              {/* <UserBar /> */}
-              
-            {/* <Switch>
-                <Route exact path='/login'>
-                <Login />
-                </Route>
-                <Route path='/signup'>
-                <Signup />
-                </Route>
-            </Switch> */}
               <Switch>
-              {/* <Route exact path="/login">
-                  <Login />
-                </Route>
-              <Route exact path="/signup">
-                  <Signup />
-                </Route> */}
                 <Route exact path="/">
                   <Home />
                 </Route>
