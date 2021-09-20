@@ -37,14 +37,14 @@ const Navbar = () => {
 								</Link>
 							</li>
 							<li className="nav-item">
-								<Link href="/login" className="nav-item" onClick={logout}>
+								<Link to="/login" className="nav-item" onClick={logout}>
 									LogOut
               </Link>
 							</li>
 						</div>
 					) : (
 						<div className="UserNav">
-							<Link onClick={login} style={{cursor:'pointer'}}
+							<Link to="/login" onClick={login} style={{cursor:'pointer'}}
 								className="nav-item">
 								Login
               </Link>
