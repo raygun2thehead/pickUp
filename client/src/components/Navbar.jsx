@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import UserContext from '../utils/UserContext';
+import { Container, Row, Col } from 'react-bootstrap'
 
 const Navbar = () => {
 	const { loggedIn, logout } = useContext(UserContext);
@@ -17,55 +18,59 @@ const Navbar = () => {
 	}, [active])
 
 	return (
-		<div className="navbar">
-			<div className="userbar">
-				{loggedIn ? (
-					<div className="nav">
-						<li className="nav-item">
-							<Link to={"/profile"} className="nav-link">
-								{loggedIn.username}
-							</Link>
-						</li>
-						<li className="nav-item">
-							<a href="/login" className="nav-link" onClick={logout}>
-								LogOut
+		<Container fluid>
+			<Row className="navbar">
+				<Col className="userbar">
+					{loggedIn ? (
+						<div className="userNav">
+							<li className="nav-item">
+								<Link to={"/profile"} className="nav-item">
+									{loggedIn.username}
+								</Link>
+							</li>
+							<li className="nav-item">
+								<a href="/login" className="nav-item" onClick={logout}>
+									LogOut
               </a>
-						</li>
-					</div>
-				) : (
-					<div className="nav">
-						<Link to="/login"
-							className="nav-link">
-							Login
+							</li>
+						</div>
+					) : (
+						<div className="UserNav">
+							<Link to="/login"
+								className="nav-item">
+								Login
               </Link>
-						<Link to="/signup" className="nav-link">
-							Sign Up
+							<Link to="/signup" className="nav-item">
+								Sign Up
               </Link>
-					</div>
-				)}
-			</div>
+						</div>
+					)}
+				</Col>
+			</Row>
 
-			<div className="navbarActive">
-				{active}
-			</div>
-			<div className="nav">
-				{active !== 'Home' &&
-					<Link to="/">
-						<div className="nav-item" onClick={() => setActive('Home')}>Home</div>
-					</Link>
-				}
-				{active !== 'Map' ?
-					<Link to="/map">
-						<div className="nav-item" onClick={() => setActive('Map')}>Map</div>
-					</Link> : null
-				}
-				{active !== 'PickUps' &&
-					<Link to="/pickups">
-						<div className="nav-item" onClick={() => setActive('PickUps')}>PickUps</div>
-					</Link>
-				}
-			</div>
-		</div>
+			<Row className='navbar'>
+				<Col className="navbarActive">
+					{active}
+				</Col>
+				<Col className="nav-item">
+					{active !== 'Home' &&
+						<Link to="/">
+							<div className="nav-item" onClick={() => setActive('Home')}>Home</div>
+						</Link>
+					}
+					{active !== 'Map' ?
+						<Link to="/map">
+							<div className="nav-item" onClick={() => setActive('Map')}>Map</div>
+						</Link> : null
+					}
+					{active !== 'PickUps' &&
+						<Link to="/pickups">
+							<div className="nav-item" onClick={() => setActive('PickUps')}>PickUps</div>
+						</Link>
+					}
+				</Col>
+			</Row>
+		</Container>
 	)
 }
 

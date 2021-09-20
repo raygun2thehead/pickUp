@@ -46,6 +46,8 @@ body a {
   height: 100%;
 }
 
+
+
 .userBarItem {
   margin: 2px;
   padding-right: 1px;
@@ -66,12 +68,14 @@ form {
 
 .navbarActive {
   font-size: 2em;
+  text-align: right;
 }
 
 .nav-item {
   margin: 2px;
-  float: left;
+  float: right;
   padding-right: 15px;
+  text-decoration: none;
 }
 
 .nav-item:hover{
