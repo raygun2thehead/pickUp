@@ -14,7 +14,7 @@ export default function HeaderBar () {
             ></img> */}
         <React.Suspense fallback={'Loading...'}>
           <Navbar />
-                    <UserBar />
+                    {/* <UserBar /> */}
 
         </React.Suspense>
         <br />

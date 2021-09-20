@@ -80,6 +80,7 @@ form {
 
 .nav-item:hover{
   color: grey;
+  cursor: pointer;
 }
 
 .navbar-nav {

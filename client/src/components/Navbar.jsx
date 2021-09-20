@@ -1,10 +1,18 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import UserContext from '../utils/UserContext';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap';
+import Login from './Login'
+import Signup from "./Signup";
 
 const Navbar = () => {
 	const { loggedIn, logout } = useContext(UserContext);
+
+	const [showLogin, setShowLogin] = useState(false);
+	const login = () => setShowLogin(true);
+	
+	const [showSignup, setShowSignup] = useState(false);
+	const signup = () => setShowSignup(true);
 
 	const [active, setActive] = useState('')
 	useEffect(() => {
@@ -36,13 +44,13 @@ const Navbar = () => {
 						</div>
 					) : (
 						<div className="UserNav">
-							<Link to="/login"
+							<a onClick={login} style={{cursor:'pointer'}}
 								className="nav-item">
 								Login
-              </Link>
-							<Link to="/signup" className="nav-item">
+              </a>
+							<a to="/signup" onClick={signup} className="nav-item">
 								Sign Up
-              </Link>
+              </a>
 						</div>
 					)}
 				</Col>
@@ -69,6 +77,10 @@ const Navbar = () => {
 						</Link>
 					}
 				</Col>
+			</Row>
+			<Row>
+				{showLogin ? <Login /> : null}
+				{showSignup ? <Signup /> : null}
 			</Row>
 		</Container>
 	)
