@@ -5,22 +5,6 @@ import pickUpLogo from '../assets/pickUpLogo.png'
 
 const Home = () => {
 
-    // useEffect(() => {
-    //     UserService.getPublicContent().then(
-    //         (response) => {
-    //             setContent(response.data);
-    //         },
-    //         (error) => {
-    //             const _content =
-    //                 (error.response && error.response.data) ||
-    //                 error.message ||
-    //                 error.toString();
-
-    //             setContent(_content);
-    //         }
-    //     );
-    // }, []);
-
     return (
         <div className="home">
             <img 
