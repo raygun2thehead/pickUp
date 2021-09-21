@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-// import { Button, Form, FormGroup, Label, Input } from 'react-bootstrap';
-// import { Link } from 'react-router-dom';
 import UserContext from '../utils/UserContext';
 
 export default function Login () {
